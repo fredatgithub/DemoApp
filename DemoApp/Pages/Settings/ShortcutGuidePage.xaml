@@ -12,7 +12,7 @@
         ModuleImageSource="ms-appx:///Assets/Modules/ShortcutGuide.png"
         ModuleTitle="Shortcut Guide">
         <controls:SettingsPageControl.ModuleContent>
-            <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Vertical" ChildrenTransitions="{StaticResource SettingsCardsAnimations}">
                 <controls:Setting Header="Enable Shortcut Guide">
                     <controls:Setting.Icon>
                         <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/FluentIcons/FluentIconsShortcutGuide.png"/>

@@ -9,7 +9,7 @@
         ModuleImageSource="ms-appx:///Assets/Modules/PT.png"
         ModuleTitle="AppNotification">
         <controls:SettingsPageControl.ModuleContent>
-            <StackPanel Margin="10" Spacing="10">
+            <StackPanel Margin="10" Spacing="10" ChildrenTransitions="{StaticResource SettingsCardsAnimations}">
                 <InfoBar IsOpen="True" IsClosable="False" Message="Try in Unpackaged Mode, for Packaged you need to Register CLSID" Severity="Warning"/>
                 <Button Name="btnToast1" Content="Send Toast with Avatar" Click="btnToast1_Click"/>
                 <Button Name="btnToast2" Content="Send Toast with TextBox" Click="btnToast2_Click"/>

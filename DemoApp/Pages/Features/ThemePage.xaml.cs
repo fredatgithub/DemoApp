@@ -13,11 +13,11 @@ public sealed partial class ThemePage : Page
 
     private void OnThemeRadioButtonChecked(object sender, RoutedEventArgs e)
     {
-        ThemeHelper.OnThemeRadioButtonChecked(sender);
+        ThemeHelper.OnRadioButtonChecked(sender);
     }
 
     private void SettingsPageControl_Loaded(object sender, RoutedEventArgs e)
     {
-        ThemeHelper.SetThemeRadioButtonChecked(ThemePanel);
+        ThemeHelper.SetRadioButtonDefaultItem(ThemePanel);
     }
 }

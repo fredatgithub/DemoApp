@@ -13,7 +13,7 @@
         ModuleTitle="PowerRename"
         SecondaryLinksHeader="Attribution">
         <controls:SettingsPageControl.ModuleContent>
-            <StackPanel HorizontalAlignment="Stretch" Orientation="Vertical">
+            <StackPanel HorizontalAlignment="Stretch" Orientation="Vertical" ChildrenTransitions="{StaticResource SettingsCardsAnimations}">
                 <controls:Setting Header="Enable PowerRename">
                     <controls:Setting.Icon>
                         <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/FluentIcons/FluentIconsPowerRename.png"/>

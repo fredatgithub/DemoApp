@@ -9,7 +9,7 @@
         ModuleImageSource="ms-appx:///Assets/Modules/PT.png"
         ModuleTitle="InlineAutoCompleteTextBox">
         <controls:SettingsPageControl.ModuleContent>
-            <StackPanel Margin="10" Orientation="Vertical">
+            <StackPanel Margin="10" Orientation="Vertical" ChildrenTransitions="{StaticResource SettingsCardsAnimations}">
                 <StackPanel.Resources>
                     <Style TargetType="Grid">
                         <Setter Property="RowSpacing" Value="20" />

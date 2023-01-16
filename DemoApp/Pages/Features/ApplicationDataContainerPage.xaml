@@ -10,7 +10,7 @@
         ModuleImageSource="ms-appx:///Assets/Modules/PT.png"
         ModuleTitle="ApplicationDataContainerHelper">
         <controls:SettingsPageControl.ModuleContent>
-            <StackPanel Spacing="10">
+            <StackPanel Spacing="10" ChildrenTransitions="{StaticResource SettingsCardsAnimations}">
                 <TextBox Name="txtString" PlaceholderText="String Value"/>
                 <NumberBox Name="txtNumber" PlaceholderText="Double Value" SpinButtonPlacementMode="Inline"/>
                 <CheckBox Name="chkBool" Content="Is Checked"/>

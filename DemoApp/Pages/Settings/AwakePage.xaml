@@ -14,7 +14,7 @@
         ModuleTitle="Awake"
         SecondaryLinksHeader="Attribution">
         <controls:SettingsPageControl.ModuleContent>
-            <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Vertical" ChildrenTransitions="{StaticResource SettingsCardsAnimations}">
                 <controls:Setting Header="Enable Awake">
                     <controls:Setting.Icon>
                         <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/FluentIcons/FluentIconsAwake.png"/>

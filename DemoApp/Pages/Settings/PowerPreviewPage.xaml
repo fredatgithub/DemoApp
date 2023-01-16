@@ -13,7 +13,7 @@
         ModuleImageSource="ms-appx:///Assets/Modules/PowerPreview.png"
         ModuleTitle="File Explorer">
         <controls:SettingsPageControl.ModuleContent>
-            <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Vertical" ChildrenTransitions="{StaticResource SettingsCardsAnimations}">
                 <InfoBar
                     Title="You need to run as administrator to modify these settings."
                     IsClosable="False"

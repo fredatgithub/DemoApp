@@ -8,7 +8,7 @@
                                   ModuleTitle="General"
                                   SecondaryLinksHeader="Related information">
         <controls:SettingsPageControl.ModuleContent>
-            <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Vertical" ChildrenTransitions="{StaticResource SettingsCardsAnimations}">
                 <controls:SettingsGroup Margin="0,-32,0,0"
                                         Header="Version">
                     <controls:Setting Header="v0.45.0"

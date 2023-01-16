@@ -10,7 +10,7 @@
         ModuleImageSource="ms-appx:///Assets/Modules/PT.png"
         ModuleTitle="ThemeHelper">
         <controls:SettingsPageControl.ModuleContent>
-            <StackPanel>
+            <StackPanel ChildrenTransitions="{StaticResource SettingsCardsAnimations}">
                 <InfoBar IsOpen="True" IsClosable="False" Title="Dont forget to Initialize `ThemeHelper.initialize(m_window)` in your App.cs" Severity="Warning"/>
                 <StackPanel x:Name="ThemePanel" Margin="10">
                     <RadioButton Tag="Light" Checked="OnThemeRadioButtonChecked" Content="Light"/>

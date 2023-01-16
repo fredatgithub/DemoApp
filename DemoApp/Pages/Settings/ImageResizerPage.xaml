@@ -16,7 +16,7 @@
         ModuleTitle="Image Resizer"
         SecondaryLinksHeader="Attribution">
         <controls:SettingsPageControl.ModuleContent>
-            <StackPanel>
+            <StackPanel ChildrenTransitions="{StaticResource SettingsCardsAnimations}">
                 <controls:Setting Header="Enable Image Resizer">
                     <controls:Setting.Icon>
                         <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/FluentIcons/FluentIconsImageResizer.png"/>

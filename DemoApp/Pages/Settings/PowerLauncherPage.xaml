@@ -15,7 +15,7 @@ xmlns:controls="using:WinUICommunity.SettingsUI.Controls"
         ModuleTitle="PowerToys Run"
         SecondaryLinksHeader="Attribution">
         <controls:SettingsPageControl.ModuleContent>
-            <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Vertical" ChildrenTransitions="{StaticResource SettingsCardsAnimations}">
                 <controls:Setting Header="Enable PowerToys Run">
                     <controls:Setting.Icon>
                         <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/FluentIcons/FluentIconsPowerToysRun.png"/>

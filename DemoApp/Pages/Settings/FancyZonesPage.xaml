@@ -12,7 +12,7 @@
         ModuleImageSource="ms-appx:///Assets/Modules/FancyZones.png"
         ModuleTitle="FancyZones">
         <controls:SettingsPageControl.ModuleContent>
-            <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Vertical" ChildrenTransitions="{StaticResource SettingsCardsAnimations}">
                 <controls:Setting Header="Enable FancyZones">
                     <controls:Setting.Icon>
                         <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/FluentIcons/FluentIconsFancyZones.png"/>

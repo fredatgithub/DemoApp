@@ -9,7 +9,7 @@
         ModuleImageSource="ms-appx:///Assets/Modules/PT.png"
         ModuleTitle="PrintHelper">
         <controls:SettingsPageControl.ModuleContent>
-            <StackPanel Margin="10" Spacing="10">
+            <StackPanel Margin="10" Spacing="10" ChildrenTransitions="{StaticResource SettingsCardsAnimations}">
                 <InfoBar Severity="Warning" IsClosable="False" IsOpen="True" Title="Because PrintHelper has not yet been updated to the CommunityToolkit package, we added it. But note that whenever it is updated to the CommunityToolkit package, we will remove this helper class."/>
                 <InfoBar Severity="Warning" IsClosable="False" IsOpen="True" Title="PrintHelper is Available Only in Windows10.0.19041_OR_Greater Target Frameworks."/>
                 <StackPanel Margin="20 20 20 5" HorizontalAlignment="Left" Orientation="Horizontal">

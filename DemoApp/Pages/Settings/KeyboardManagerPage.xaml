@@ -12,7 +12,7 @@
         ModuleImageSource="ms-appx:///Assets/Modules/KBM.png"
         ModuleTitle="Keyboard Manager">
         <controls:SettingsPageControl.ModuleContent>
-            <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Vertical" ChildrenTransitions="{StaticResource SettingsCardsAnimations}">
                 <controls:Setting Header="Enable Keyboard Manager">
                     <controls:Setting.Icon>
                         <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/FluentIcons/FluentIconsKeyboardManager.png"/>

@@ -9,7 +9,7 @@
         ModuleImageSource="ms-appx:///Assets/Modules/PT.png"
         ModuleTitle="WindowHelper">
         <controls:SettingsPageControl.ModuleContent>
-            <StackPanel Spacing="10">
+            <StackPanel Spacing="10" ChildrenTransitions="{StaticResource SettingsCardsAnimations}">
                 <StackPanel VerticalAlignment="Center">
                     <Button Margin="4" x:Name="CompactoverlaytBtn"
                             Content="Enter CompactOverlay"

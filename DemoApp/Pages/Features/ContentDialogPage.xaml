@@ -10,7 +10,7 @@
         ModuleImageSource="ms-appx:///Assets/Modules/PT.png"
         ModuleTitle="ContentDialog: ShowAsyncQueue Extension">
         <controls:SettingsPageControl.ModuleContent>
-            <StackPanel>
+            <StackPanel ChildrenTransitions="{StaticResource SettingsCardsAnimations}">
                 <Button Click="Button_Click" Content="Open 5 ContentDialog" HorizontalAlignment="Center"/>
             </StackPanel>
         </controls:SettingsPageControl.ModuleContent>

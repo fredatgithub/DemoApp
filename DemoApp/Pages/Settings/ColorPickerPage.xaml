@@ -16,7 +16,7 @@
         ModuleTitle="Color Picker"
         SecondaryLinksHeader="Attribution">
         <controls:SettingsPageControl.ModuleContent>
-            <StackPanel x:Name="ColorPickerView" Orientation="Vertical">
+            <StackPanel x:Name="ColorPickerView" Orientation="Vertical" ChildrenTransitions="{StaticResource SettingsCardsAnimations}">
                 <controls:Setting Header="Enable Color Picker">
                     <controls:Setting.Icon>
                         <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/FluentIcons/FluentIconsColorPicker.png"/>

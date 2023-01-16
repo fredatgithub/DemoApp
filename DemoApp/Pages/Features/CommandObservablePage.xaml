@@ -10,7 +10,7 @@
         ModuleImageSource="ms-appx:///Assets/Modules/PT.png"
         ModuleTitle="Observable and RelayCommand">
         <controls:SettingsPageControl.ModuleContent>
-            <StackPanel>
+            <StackPanel ChildrenTransitions="{StaticResource SettingsCardsAnimations}">
                 <Button Command="{x:Bind Vm.ItemInvokedCommand}" Content="Click Here" HorizontalAlignment="Center"/>
                 <TextBlock Text="{x:Bind Vm.MyText, Mode=TwoWay}" FontSize="64" Margin="20" HorizontalAlignment="Center"/>
             </StackPanel>

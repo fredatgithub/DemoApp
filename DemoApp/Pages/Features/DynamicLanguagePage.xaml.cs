@@ -9,12 +9,6 @@ public sealed partial class DynamicLanguagePage : Page
     public DynamicLanguagePage()
     {
         this.InitializeComponent();
-        Loaded += DynamicLanguagePage_Loaded;
-    }
-
-    private void DynamicLanguagePage_Loaded(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)
-    {
-        Localizer.Get().RunLocalization(Root);
     }
 
     private void Button_Click(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)

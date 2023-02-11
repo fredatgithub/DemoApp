@@ -12,6 +12,7 @@
     mc:Ignorable="d">
     <Page.Resources>
         <!--  These styles can be referenced to create a consistent SettingsPage layout  -->
+        <Style TargetType="TabViewItem" BasedOn="{StaticResource TabViewItemRounded}"/>
         <x:Double x:Key="SettingsCardSpacing">3</x:Double>
         <Style x:Key="SettingsSectionHeaderTextBlockStyle"
                BasedOn="{StaticResource BodyStrongTextBlockStyle}"

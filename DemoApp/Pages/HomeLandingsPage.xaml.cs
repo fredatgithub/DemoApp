@@ -3,7 +3,6 @@
 
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
-using System.Diagnostics;
 using WinUICommunity.DemoApp;
 using WinUICommunity.LandingsPage.DataModel;
 

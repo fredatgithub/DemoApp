@@ -1,0 +1,56 @@
+<!-- Copyright (c) Microsoft Corporation and Contributors. -->
+<!-- Licensed under the MIT License. -->
+
+<Page
+    x:Class="DemoApp.Pages.HomeLandingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DemoApp.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:WinUICommunity.LandingsPage.Controls"
+    mc:Ignorable="d">
+
+    <controls:MainLandingsPage x:Name="mainLandingsPage" Loaded="mainLandingsPage_Loaded"
+                            HomePageHeaderImage="ms-appx:///Assets/GalleryHeaderImage.png"
+                            Title="Demo App"
+                            Description="Based On WinAppSDK 1.2"
+                            OnItemClick="mainLandingsPage_OnItemClick">
+        <controls:MainLandingsPage.HeaderContent>
+            <StackPanel Orientation="Horizontal" Spacing="10">
+                <controls:HeaderTile
+                        Title="Documentation Center"
+                        Description="Learn how to work with controls and styles."
+                        Link="https://ghost1372.github.io/winUICommunity/">
+                    <controls:HeaderTile.Source>
+                        <Image Source="/Assets/HomeHeaderTiles/Header-WinUIGallery.png" />
+                    </controls:HeaderTile.Source>
+                </controls:HeaderTile>
+                <controls:HeaderTile
+                        Title="SettingsUI"
+                        Description="Experience WinUI 3 quickly and easily with the help of SettingsUI, Everything you need to develop an application is gathered in one place."
+                        Link="https://github.com/WinUICommunity/SettingsUI">
+                    <controls:HeaderTile.Source>
+                        <Image Source="/Assets/HomeHeaderTiles/icon.png" />
+                    </controls:HeaderTile.Source>
+                </controls:HeaderTile>
+                <controls:HeaderTile
+                        Title="Common"
+                        Description="Experience WinUI 3 quickly and easily with the help of Common, Everything you need to develop an application is gathered in one place."
+                        Link="https://github.com/WinUICommunity/Common">
+                    <controls:HeaderTile.Source>
+                        <Image Source="/Assets/HomeHeaderTiles/icon.png" />
+                    </controls:HeaderTile.Source>
+                </controls:HeaderTile>
+                <controls:HeaderTile
+                        Title="ShellContextMenu"
+                        Description="add a new ContextMenu for Windows 11/10."
+                        Link="https://github.com/WinUICommunity/ShellContextMenu">
+                    <controls:HeaderTile.Source>
+                        <Image Source="/Assets/HomeHeaderTiles/icon.png" />
+                    </controls:HeaderTile.Source>
+                </controls:HeaderTile>
+            </StackPanel>
+        </controls:MainLandingsPage.HeaderContent>
+    </controls:MainLandingsPage>
+</Page>

@@ -1,21 +1,33 @@
 using Microsoft.UI.Xaml.Controls;
 using WinUICommunity.DemoApp.Pages;
 using WinUICommunity.Common.ViewModel;
+using DemoApp.Pages;
+using static WinUICommunity.Common.Tools.LanguageDictionary;
+using System;
+using CommunityToolkit.WinUI.UI.Animations;
 
 namespace WinUICommunity.DemoApp;
 
 public sealed partial class ShellPage : Page
 {
+    public static ShellPage Instance { get; private set; }
     public ShellViewModel ViewModel { get; } = new ShellViewModel();
 
     public ShellPage()
     {
         this.InitializeComponent();
+        Instance = this;
         ViewModel.InitializeNavigation(shellFrame, navigationView)
             .WithAutoSuggestBox(autoSuggestBox)
             .WithKeyboardAccelerator(KeyboardAccelerators)
             .WithSettingsPage(typeof(GeneralPage))
-            .WithDefaultPage(typeof(GeneralPage));
+            .WithDefaultPage(typeof(HomeLandingsPage));
+    }
+
+    public void Navigate(string uniqeId)
+    {
+        Type pageType = Type.GetType(uniqeId);
+        shellFrame.Navigate(pageType);
     }
 
     private void UserControl_Loaded(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)

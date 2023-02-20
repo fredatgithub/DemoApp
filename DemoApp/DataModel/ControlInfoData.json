@@ -3,6 +3,7 @@
     {
       "UniqueId": "Features",
       "Title": "Features pages",
+      "SecondaryTitle": "",
       "ApiNamespace": "",
       "Subtitle": "",
       "ImagePath": "",
@@ -13,14 +14,16 @@
         {
           "UniqueId": "WinUICommunity.DemoApp.Pages.ApplicationDataContainerPage",
           "Title": "ApplicationDataContainer",
-          "ApiNamespace": "",
+          "SecondaryTitle": "Test SecondaryTitle",
+          "ApiNamespace": "DemoApp",
           "Subtitle": "you can use ApplicationDataContainerHelper for saving and loading application settings.",
           "ImagePath": "ms-appx:///Assets/Modules/PT.png",
           "ImageIconPath": "ms-appx:///Assets/Modules/PT.png",
-          "Description": "",
+          "Description": "test description",
           "Content": "",
           "IsNew": false,
           "IsUpdated": true,
+          "IsPreview": false,
           "IncludedInBuild": true,
           "HideSourceCodeAndRelatedControls": false,
           "Docs": [
@@ -38,7 +41,8 @@
         {
           "UniqueId": "WinUICommunity.DemoApp.Pages.AppNotificationPage",
           "Title": "App Notification",
-          "ApiNamespace": "",
+          "SecondaryTitle": "Test SecondaryTitle",
+          "ApiNamespace": "DemoApp",
           "Subtitle": "you can use AppNotificationPage for Sending Toast Notification.",
           "ImagePath": "ms-appx:///Assets/Modules/PT.png",
           "ImageIconPath": "ms-appx:///Assets/Modules/PT.png",
@@ -60,7 +64,8 @@
         {
           "UniqueId": "WinUICommunity.DemoApp.Pages.CheckUpdatePage",
           "Title": "Check Update",
-          "ApiNamespace": "",
+          "ApiNamespace": "DemoApp",
+          "SecondaryTitle": "Test SecondaryTitle",
           "Subtitle": "you can use UpdateHelper for checking application updates from github release page.",
           "ImagePath": "ms-appx:///Assets/Modules/PT.png",
           "ImageIconPath": "ms-appx:///Assets/Modules/PT.png",
@@ -82,7 +87,8 @@
         {
           "UniqueId": "WinUICommunity.DemoApp.Pages.CommandObservablePage",
           "Title": "Observable and RelayCommand",
-          "ApiNamespace": "",
+          "ApiNamespace": "DemoApp",
+          "SecondaryTitle": "Test SecondaryTitle",
           "Subtitle": "Observable: inherited from INotifyPropertyChanged. - RelayCommand: inherited from ICommand.",
           "ImagePath": "ms-appx:///Assets/Modules/PT.png",
           "ImageIconPath": "ms-appx:///Assets/Modules/PT.png",
@@ -99,7 +105,8 @@
         {
           "UniqueId": "WinUICommunity.DemoApp.Pages.ContentDialogPage",
           "Title": "Content Dialog",
-          "ApiNamespace": "",
+          "ApiNamespace": "DemoApp",
+          "SecondaryTitle": "Test SecondaryTitle",
           "Subtitle": "With the help of ShowAsyncQueue extension you can open multiple ContentDialogs.",
           "ImagePath": "ms-appx:///Assets/Modules/PT.png",
           "ImageIconPath": "ms-appx:///Assets/Modules/PT.png",
@@ -116,7 +123,8 @@
         {
           "UniqueId": "WinUICommunity.DemoApp.Pages.DynamicLanguagePage",
           "Title": "Dynamic Language",
-          "ApiNamespace": "",
+          "ApiNamespace": "DemoApp",
+          "SecondaryTitle": "Test SecondaryTitle",
           "Subtitle": "With the help of DynamicLanguage you can create a dynamic multi language app.",
           "ImagePath": "ms-appx:///Assets/Modules/PT.png",
           "ImageIconPath": "ms-appx:///Assets/Modules/PT.png",
@@ -138,7 +146,8 @@
         {
           "UniqueId": "WinUICommunity.DemoApp.Pages.InlineAutoCompleteTextBoxPage",
           "Title": "Inline AutoCompleteTextBox",
-          "ApiNamespace": "",
+          "ApiNamespace": "DemoApp",
+          "SecondaryTitle": "Test SecondaryTitle",
           "Subtitle": "Inline AutoCompleteTextBox",
           "ImagePath": "ms-appx:///Assets/Modules/PT.png",
           "ImageIconPath": "ms-appx:///Assets/Modules/PT.png",
@@ -160,7 +169,8 @@
         {
           "UniqueId": "WinUICommunity.DemoApp.Pages.SettingsControls",
           "Title": "Settings Controls",
-          "ApiNamespace": "",
+          "ApiNamespace": "DemoApp",
+          "SecondaryTitle": "Test SecondaryTitle",
           "Subtitle": "SettingsControls from Labs",
           "ImagePath": "ms-appx:///Assets/Modules/PT.png",
           "ImageIconPath": "ms-appx:///Assets/Modules/PT.png",
@@ -182,7 +192,8 @@
         {
           "UniqueId": "WinUICommunity.DemoApp.Pages.SystemBackdropsPage",
           "Title": "SystemBackdrops",
-          "ApiNamespace": "",
+          "ApiNamespace": "DemoApp",
+          "SecondaryTitle": "Test SecondaryTitle",
           "Subtitle": "you can use SystemBackdropsHelper for accessing Mica and Acrylic Effect for your Window.",
           "ImagePath": "ms-appx:///Assets/Modules/PT.png",
           "ImageIconPath": "ms-appx:///Assets/Modules/PT.png",
@@ -209,13 +220,15 @@
       "ApiNamespace": "",
       "Subtitle": "",
       "ImagePath": "",
+      "SecondaryTitle": "Test SecondaryTitle",
       "ImageIconPath": "",
       "Description": "",
       "Items": [
         {
           "UniqueId": "WinUICommunity.DemoApp.Pages.OobePage",
           "Title": "Oobe Page",
-          "ApiNamespace": "",
+          "ApiNamespace": "DemoApp",
+          "SecondaryTitle": "Test SecondaryTitle",
           "Subtitle": "Settings Page with a Hero Image",
           "ImagePath": "ms-appx:///Assets/Modules/PT.png",
           "ImageIconPath": "ms-appx:///Assets/Modules/PT.png",

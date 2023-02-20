@@ -5,6 +5,7 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System;
 using WinUICommunity.Common.Helpers;
+using WinUICommunity.LandingsPage.Controls;
 using WinUICommunity.Shared.DataModel;
 
 namespace WinUICommunity.DemoApp.Pages
@@ -53,7 +54,7 @@ namespace WinUICommunity.DemoApp.Pages
                 if (selectedItem.DataContext is ControlInfoDataGroup)
                 {
                     var itemId = ((ControlInfoDataGroup)selectedItem.DataContext).UniqueId;
-                    NavigationViewHelper.GetCurrent().Navigate(typeof(SectionPage), itemId);
+                    NavigationViewHelper.GetCurrent().Navigate(typeof(WinUICommunity.DemoApp.Pages.SectionPage), itemId);
                 }
                 else if (selectedItem.DataContext is ControlInfoDataItem)
                 {

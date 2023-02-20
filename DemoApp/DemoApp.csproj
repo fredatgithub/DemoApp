@@ -61,6 +61,7 @@
 	</ItemGroup>
 	<ItemGroup>
 	  <None Remove="Pages\AllLandingsPage.xaml" />
+	  <None Remove="Pages\Features\NavigationViewHelper\SectionPage.xaml" />
 	  <None Remove="Pages\ItemPage.xaml" />
 	  <None Remove="Pages\NavigationViewFromJson.xaml" />
 	  <None Remove="Pages\SectionPage.xaml" />
@@ -97,6 +98,10 @@
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="Pages\Features\LandingsPage\" />
-	  <Folder Include="Pages\Features\NavigationViewHelper\" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Page Update="Pages\Features\NavigationViewHelper\SectionPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
 	</ItemGroup>
 </Project>

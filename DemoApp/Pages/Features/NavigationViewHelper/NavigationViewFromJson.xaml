@@ -16,6 +16,7 @@
             Grid.Column="1"
             Canvas.ZIndex="0"
             IsTabStop="False"
+            PaneDisplayMode="Left"
             SelectionChanged="OnNavigationViewSelectionChanged"
             IsTitleBarAutoPaddingEnabled="True">
             <NavigationView.AutoSuggestBox>

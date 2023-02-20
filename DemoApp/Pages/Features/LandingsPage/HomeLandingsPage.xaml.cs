@@ -3,10 +3,9 @@
 
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
-using WinUICommunity.DemoApp;
-using WinUICommunity.LandingsPage.DataModel;
+using WinUICommunity.Shared.DataModel;
 
-namespace DemoApp.Pages
+namespace WinUICommunity.DemoApp.Pages
 {
     public sealed partial class HomeLandingsPage : Page
     {
@@ -17,7 +16,7 @@ namespace DemoApp.Pages
 
         private void mainLandingsPage_Loaded(object sender, RoutedEventArgs e)
         {
-            mainLandingsPage.GetControlInfoDataAsync("DataModel/ControlInfoData.json");
+            mainLandingsPage.GetDataAsync("DataModel/ControlInfoData.json");
         }
 
         private void mainLandingsPage_OnItemClick(object sender, RoutedEventArgs e)

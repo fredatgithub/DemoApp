@@ -28,9 +28,6 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.2.230118.102" />
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.22621.755" />
-    <PackageReference Include="WinUICommunity.LandingsPage" Version="1.0.0" />
-    <PackageReference Include="WinUICommunity.SettingsUI" Version="3.0.4" />
-    <PackageReference Include="WinUICommunity.Common" Version="3.0.4" />
     <Manifest Include="$(ApplicationManifest)" />
   </ItemGroup>
 
@@ -63,8 +60,43 @@
 		</Content>
 	</ItemGroup>
 	<ItemGroup>
+	  <None Remove="Pages\AllLandingsPage.xaml" />
+	  <None Remove="Pages\ItemPage.xaml" />
+	  <None Remove="Pages\NavigationViewFromJson.xaml" />
+	  <None Remove="Pages\SectionPage.xaml" />
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\..\Common\Common\Common.csproj" />
+	  <ProjectReference Include="..\..\LandingsPage\LandingsPage\LandingsPage.csproj" />
+	  <ProjectReference Include="..\..\SettingsUI\SettingsUI\SettingsUI.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Page Update="Pages\NavigationViewFromJson.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
+	</ItemGroup>
+	<ItemGroup>
+	  <Page Update="Pages\SectionPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
+	</ItemGroup>
+	<ItemGroup>
+	  <Page Update="Pages\ItemPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
+	</ItemGroup>
+	<ItemGroup>
+	  <Page Update="Pages\AllLandingsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
+	</ItemGroup>
+	<ItemGroup>
 	  <Page Update="Pages\HomeLandingsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </Page>
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Pages\Features\LandingsPage\" />
+	  <Folder Include="Pages\Features\NavigationViewHelper\" />
 	</ItemGroup>
 </Project>

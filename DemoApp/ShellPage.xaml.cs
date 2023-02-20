@@ -1,10 +1,7 @@
 using Microsoft.UI.Xaml.Controls;
 using WinUICommunity.DemoApp.Pages;
 using WinUICommunity.Common.ViewModel;
-using DemoApp.Pages;
-using static WinUICommunity.Common.Tools.LanguageDictionary;
 using System;
-using CommunityToolkit.WinUI.UI.Animations;
 
 namespace WinUICommunity.DemoApp;
 

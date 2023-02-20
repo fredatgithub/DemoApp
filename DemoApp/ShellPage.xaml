@@ -33,6 +33,39 @@
             <NavigationView.MenuItems>
                 <NavigationViewItem
                     Margin="0,0,12,0"
+                    Content="LandingsPage">
+                    <NavigationViewItem.Icon>
+                        <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/FluentIcons/FluentIconsSettings.png"/>
+                    </NavigationViewItem.Icon>
+                    <NavigationViewItem.MenuItems>
+                        <NavigationViewItem 
+                            Margin="0,0,12,0" 
+                            helpers:NavHelper.NavigateTo="views:AllLandingsPage"
+                            Content="AllLandingsPage">
+                            <NavigationViewItem.Icon>
+                                <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/FluentIcons/FluentIconsSettings.png"/>
+                            </NavigationViewItem.Icon>
+                        </NavigationViewItem>
+                        <NavigationViewItem 
+                            Margin="0,0,12,0" 
+                            helpers:NavHelper.NavigateTo="views:HomeLandingsPage"
+                            Content="MainLandingsPage">
+                            <NavigationViewItem.Icon>
+                                <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/FluentIcons/FluentIconsSettings.png"/>
+                            </NavigationViewItem.Icon>
+                        </NavigationViewItem>
+                    </NavigationViewItem.MenuItems>
+                </NavigationViewItem>
+                <NavigationViewItem
+                    Margin="0,0,12,0"
+                    helpers:NavHelper.NavigateTo="views:NavigationViewFromJson"
+                    Content="NavigationView with Json">
+                    <NavigationViewItem.Icon>
+                        <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/FluentIcons/FluentIconsSettings.png"/>
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem
+                    Margin="0,0,12,0"
                     helpers:NavHelper.NavigateTo="views:SettingsControls"
                     Content="SettingsControls">
                     <NavigationViewItem.Icon>

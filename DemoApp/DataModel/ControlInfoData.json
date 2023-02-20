@@ -8,7 +8,7 @@
       "ImagePath": "",
       "ImageIconPath": "",
       "Description": "",
-      "IsSpecialSection": true,
+      "IsSpecialSection": false,
       "Items": [
         {
           "UniqueId": "WinUICommunity.DemoApp.Pages.ApplicationDataContainerPage",
@@ -22,17 +22,21 @@
           "IsNew": false,
           "IsUpdated": true,
           "IncludedInBuild": true,
-          "HideSourceCodeAndRelatedControls": true,
+          "HideSourceCodeAndRelatedControls": false,
           "Docs": [
             {
               "Title": "ApplicationDataContainerPage",
               "Uri": "https://ghost1372.github.io/winUICommunity/helpers/applicationDataContainerHelper/"
             }
           ],
-          "RelatedControls": []
+          "RelatedControls": [
+            "AppBarToggleButton",
+            "AppBarSeparator",
+            "CommandBar"
+          ]
         },
         {
-          "UniqueId": "AppNotificationPage",
+          "UniqueId": "WinUICommunity.DemoApp.Pages.AppNotificationPage",
           "Title": "App Notification",
           "ApiNamespace": "",
           "Subtitle": "you can use AppNotificationPage for Sending Toast Notification.",

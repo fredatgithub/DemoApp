@@ -1,5 +1,5 @@
-﻿using WinUICommunity.Common.Tools;
-using System.Windows.Input;
+﻿using System.Windows.Input;
+using WinUICommunity.Common.Tools;
 
 namespace WinUICommunity.DemoApp.Pages.Features
 {

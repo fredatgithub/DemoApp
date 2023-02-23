@@ -1,6 +1,6 @@
 ﻿using Microsoft.UI.Xaml.Controls;
-using WinUICommunity.DemoApp.Models;
 using System.Collections.ObjectModel;
+using WinUICommunity.DemoApp.Models;
 
 namespace WinUICommunity.DemoApp.Pages
 {

@@ -1,14 +1,14 @@
-﻿using System.Collections.Generic;
-using System;
-using Microsoft.UI.Xaml;
+﻿using Microsoft.UI.Xaml;
 using Microsoft.Windows.AppNotifications;
-using WinUICommunity.DemoApp.AppNotification;
-using WinUICommunity.Common.Helpers;
-using WinUICommunity.DemoApp.Pages;
-using WinUICommunity.Common.Tools;
+using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using Windows.Storage;
+using WinUICommunity.Common.Helpers;
+using WinUICommunity.Common.Tools;
+using WinUICommunity.DemoApp.AppNotification;
+using WinUICommunity.DemoApp.Pages;
 
 namespace WinUICommunity.DemoApp;
 

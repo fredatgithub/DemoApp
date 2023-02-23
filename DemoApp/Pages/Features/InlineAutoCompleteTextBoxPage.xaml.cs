@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.UI.Xaml;
+﻿using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
+using System;
+using System.Collections.Generic;
 
 namespace WinUICommunity.DemoApp.Pages;
 public sealed partial class InlineAutoCompleteTextBoxPage : Page

@@ -1,7 +1,7 @@
 using Microsoft.UI.Xaml.Controls;
-using WinUICommunity.DemoApp.Pages;
-using WinUICommunity.Common.ViewModel;
 using System;
+using WinUICommunity.Common.ViewModel;
+using WinUICommunity.DemoApp.Pages;
 
 namespace WinUICommunity.DemoApp;
 

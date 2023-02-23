@@ -1,6 +1,6 @@
 ﻿using Microsoft.UI.Xaml.Controls;
-using WinUICommunity.Common.Helpers;
 using System;
+using WinUICommunity.Common.Helpers;
 
 namespace WinUICommunity.DemoApp.Pages
 {

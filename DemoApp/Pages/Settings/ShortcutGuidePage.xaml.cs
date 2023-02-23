@@ -1,7 +1,7 @@
 ﻿using Microsoft.UI.Xaml.Controls;
-using WinUICommunity.SettingsUI.Controls;
-using WinUICommunity.Common.Extensions;
 using System.Collections.Generic;
+using WinUICommunity.Common.Extensions;
+using WinUICommunity.SettingsUI.Controls;
 
 namespace WinUICommunity.DemoApp.Pages
 {

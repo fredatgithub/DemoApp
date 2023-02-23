@@ -22,12 +22,17 @@
     <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
     <Content Include="Assets\StoreLogo.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
-    <Content Include="DataModel\ControlInfoData.json" />
+    <Content Include="DataModel\ControlInfoData.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
 	 <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.2.230217.4" />
 	 <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.22621.755" />
+	 <PackageReference Include="WinUICommunity.Common" Version="3.1.0" />
+	 <PackageReference Include="WinUICommunity.LandingsPage" Version="1.1.0" />
+	 <PackageReference Include="WinUICommunity.SettingsUI" Version="3.1.0" />
     <Manifest Include="$(ApplicationManifest)" />
   </ItemGroup>
 
@@ -65,11 +70,6 @@
 	  <None Remove="Pages\ItemPage.xaml" />
 	  <None Remove="Pages\NavigationViewFromJson.xaml" />
 	  <None Remove="Pages\SectionPage.xaml" />
-	</ItemGroup>
-	<ItemGroup>
-	  <ProjectReference Include="..\..\Common\Common\Common.csproj" />
-	  <ProjectReference Include="..\..\LandingsPage\LandingsPage\LandingsPage.csproj" />
-	  <ProjectReference Include="..\..\SettingsUI\SettingsUI\SettingsUI.csproj" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Page Update="Pages\NavigationViewFromJson.xaml">

@@ -5,8 +5,6 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using System;
 using WinUICommunity.Common.Helpers;
-using WinUICommunity.LandingsPage.Controls;
-using WinUICommunity.Shared.DataModel;
 
 namespace WinUICommunity.DemoApp.Pages
 {
@@ -23,23 +21,12 @@ namespace WinUICommunity.DemoApp.Pages
         private void NavigationViewFromJson_Loaded(object sender, RoutedEventArgs e)
         {
             NavigationViewHelper.GetCurrent().
-                Initialize("DataModel/ControlInfoData.json", typeof(NavigationViewFromJson), rootFrame, NavigationViewControl)
+                Initialize("DataModel/ControlInfoData.json", rootFrame, NavigationViewControl)
                 .WithAutoSuggestBox(controlsSearchBox);
         }
         private void controlsSearchBox_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
         {
-            if (args.ChosenSuggestion != null && args.ChosenSuggestion is ControlInfoDataItem)
-            {
-                var infoDataItem = args.ChosenSuggestion as ControlInfoDataItem;
-                var hasChangedSelection = NavigationViewHelper.GetCurrent().EnsureItemIsVisibleInNavigation(infoDataItem.Title);
-
-                // In case the menu selection has changed, it means that it has triggered
-                // the selection changed event, that will navigate to the page already
-                if (!hasChangedSelection)
-                {
-                    NavigationViewHelper.GetCurrent().Navigate(typeof(WinUICommunity.DemoApp.Pages.ItemPage), infoDataItem.UniqueId);
-                }
-            }
+            NavigationViewHelper.GetCurrent().AutoSuggestBoxQuerySubmitted(args, typeof(WinUICommunity.DemoApp.Pages.ItemPage));
         }
         public void Navigate(Type type)
         {
@@ -48,20 +35,7 @@ namespace WinUICommunity.DemoApp.Pages
 
         private void OnNavigationViewSelectionChanged(Microsoft.UI.Xaml.Controls.NavigationView sender, Microsoft.UI.Xaml.Controls.NavigationViewSelectionChangedEventArgs args)
         {
-            if (!args.IsSettingsSelected)
-            {
-                var selectedItem = args.SelectedItemContainer;
-                if (selectedItem.DataContext is ControlInfoDataGroup)
-                {
-                    var itemId = ((ControlInfoDataGroup)selectedItem.DataContext).UniqueId;
-                    NavigationViewHelper.GetCurrent().Navigate(typeof(WinUICommunity.DemoApp.Pages.SectionPage), itemId);
-                }
-                else if (selectedItem.DataContext is ControlInfoDataItem)
-                {
-                    var item = (ControlInfoDataItem)selectedItem.DataContext;
-                    NavigationViewHelper.GetCurrent().Navigate(typeof(WinUICommunity.DemoApp.Pages.ItemPage), item.UniqueId);
-                }
-            }
+            NavigationViewHelper.GetCurrent().OnNavigationViewSelectionChanged(args, typeof(WinUICommunity.DemoApp.Pages.SectionPage), typeof(WinUICommunity.DemoApp.Pages.ItemPage));
         }
     }
 }

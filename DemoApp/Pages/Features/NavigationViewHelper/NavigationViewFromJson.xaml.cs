@@ -37,7 +37,7 @@ namespace WinUICommunity.DemoApp.Pages
                 // the selection changed event, that will navigate to the page already
                 if (!hasChangedSelection)
                 {
-                    NavigationViewHelper.GetCurrent().Navigate(typeof(ItemPage), infoDataItem.UniqueId);
+                    NavigationViewHelper.GetCurrent().Navigate(typeof(WinUICommunity.DemoApp.Pages.ItemPage), infoDataItem.UniqueId);
                 }
             }
         }
@@ -59,7 +59,7 @@ namespace WinUICommunity.DemoApp.Pages
                 else if (selectedItem.DataContext is ControlInfoDataItem)
                 {
                     var item = (ControlInfoDataItem)selectedItem.DataContext;
-                    NavigationViewHelper.GetCurrent().Navigate(typeof(ItemPage), item.UniqueId);
+                    NavigationViewHelper.GetCurrent().Navigate(typeof(WinUICommunity.DemoApp.Pages.ItemPage), item.UniqueId);
                 }
             }
         }

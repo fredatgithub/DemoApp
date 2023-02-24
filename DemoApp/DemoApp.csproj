@@ -31,7 +31,7 @@
 	 <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.2.230217.4" />
 	 <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.22621.755" />
 	 <PackageReference Include="WinUICommunity.Common" Version="3.1.0" />
-	 <PackageReference Include="WinUICommunity.LandingsPage" Version="1.1.0" />
+	 <PackageReference Include="WinUICommunity.LandingsPage" Version="1.2.1" />
 	 <PackageReference Include="WinUICommunity.SettingsUI" Version="3.1.0" />
     <Manifest Include="$(ApplicationManifest)" />
   </ItemGroup>
@@ -66,6 +66,7 @@
 	</ItemGroup>
 	<ItemGroup>
 	  <None Remove="Pages\AllLandingsPage.xaml" />
+	  <None Remove="Pages\Features\NavigationViewHelper\ItemPage.xaml" />
 	  <None Remove="Pages\Features\NavigationViewHelper\SectionPage.xaml" />
 	  <None Remove="Pages\ItemPage.xaml" />
 	  <None Remove="Pages\NavigationViewFromJson.xaml" />
@@ -98,6 +99,11 @@
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="Pages\Features\LandingsPage\" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Page Update="Pages\Features\NavigationViewHelper\ItemPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </Page>
 	</ItemGroup>
 	<ItemGroup>
 	  <Page Update="Pages\Features\NavigationViewHelper\SectionPage.xaml">

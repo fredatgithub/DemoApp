@@ -20,9 +20,10 @@ namespace WinUICommunity.DemoApp.Pages
 
         private void NavigationViewFromJson_Loaded(object sender, RoutedEventArgs e)
         {
-            NavigationViewHelper.GetCurrent().
-                Initialize("DataModel/ControlInfoData.json", rootFrame, NavigationViewControl)
-                .WithAutoSuggestBox(controlsSearchBox);
+            NavigationViewHelper.GetCurrent()
+                .WithAutoSuggestBox(controlsSearchBox)
+                .WithInfoBadge()
+                .Build("DataModel/ControlInfoData.json", rootFrame, NavigationViewControl);
         }
         private void controlsSearchBox_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
         {

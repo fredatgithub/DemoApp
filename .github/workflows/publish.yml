@@ -5,6 +5,7 @@ on:
   
 env:
   PROJECT_PATH: DemoApp/DemoApp.csproj
+  ZIP_FILENAME: ${{ github.workspace }}\publish\DemoApp-v
   DIR_PATH: publish
   
 jobs:
@@ -20,10 +21,10 @@ jobs:
       id: get-version
       with:
         proj-path: ${{ env.PROJECT_PATH }}
-        
+
     - name: Build and Publish DemoApp
       run: dotnet publish ${{ env.PROJECT_PATH }} -c Release -r win10-x64 -p:Platform=x64 --self-contained true -p:PublishSingleFile=false -p:PublishReadyToRun=true -p:PublishTrimmed=false --output publish
-    
+
     - name: Zip Publish Folder
       uses: vimtor/action-zip@v1.1
       with:
@@ -45,7 +46,7 @@ jobs:
       uses: csexton/release-asset-action@v2
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
-        file: publish/DempApp-v${{steps.get-version.outputs.version-prefix}}.zip
+        file: ${{ env.ZIP_FILENAME }}${{steps.get-version.outputs.version-prefix}}.zip
         release-url: ${{ steps.create_release.outputs.upload_url }}
         
   changelog:

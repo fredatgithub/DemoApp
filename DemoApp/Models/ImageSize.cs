@@ -1,6 +1,4 @@
-﻿using WinUICommunity.Common.Tools;
-
-namespace WinUICommunity.DemoApp.Models
+﻿namespace WinUICommunity.DemoApp.Models
 {
     public class ImageSize : Observable
     {

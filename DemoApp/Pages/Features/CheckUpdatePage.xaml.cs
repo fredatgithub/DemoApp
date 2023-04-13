@@ -1,6 +1,5 @@
 ﻿using Microsoft.UI.Xaml.Controls;
 using System;
-using WinUICommunity.Common.Helpers;
 
 namespace WinUICommunity.DemoApp.Pages
 {
@@ -15,7 +14,7 @@ namespace WinUICommunity.DemoApp.Pages
         {
             if (string.IsNullOrEmpty(txtUser.Text) || string.IsNullOrEmpty(txtRepo.Text))
             {
-                txtUser.Text = "ghost1372";
+                txtUser.Text = "WinUICommunity";
                 txtRepo.Text = "SettingsUI";
             }
             var ver = await UpdateHelper.CheckUpdateAsync(txtUser.Text, txtRepo.Text);

@@ -1,5 +1,4 @@
 ﻿using Microsoft.UI.Xaml.Controls;
-using WinUICommunity.Common.Extensions;
 
 namespace WinUICommunity.DemoApp.Pages
 {

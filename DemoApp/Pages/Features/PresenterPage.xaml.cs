@@ -1,7 +1,6 @@
 ﻿using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
-using WinUICommunity.Common.Helpers;
 
 namespace WinUICommunity.DemoApp.Pages
 {
@@ -12,7 +11,7 @@ namespace WinUICommunity.DemoApp.Pages
         public PresenterPage()
         {
             this.InitializeComponent();
-            m_AppWindow = WindowHelper.GetAppWindowForCurrentWindow(MainWindow.Instance);
+            m_AppWindow = MainWindow.Instance.AppWindow;
             m_Presenter = m_AppWindow.Presenter;
 
             m_AppWindow.Changed += AppWindow_Changed;
@@ -44,8 +43,6 @@ namespace WinUICommunity.DemoApp.Pages
                         // and use the custom title bar instead.
                         MainWindow.Instance.ApplicationTitleBar.Visibility = Visibility.Visible;
                         sender.TitleBar.ExtendsContentIntoTitleBar = true;
-                        TitleBarHelper.SetDragRegionForCustomTitleBar(sender);
-                        ThemeHelper.UpdateSystemCaptionButtonColors();
                         break;
 
                     default:

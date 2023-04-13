@@ -1,6 +1,5 @@
 ﻿using Microsoft.UI.Xaml.Controls;
 using System.Linq;
-using WinUICommunity.Common.Tools;
 
 namespace WinUICommunity.DemoApp.Pages;
 public sealed partial class DynamicLanguagePage : Page

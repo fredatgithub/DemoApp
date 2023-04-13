@@ -1,5 +1,4 @@
 ﻿using Microsoft.Windows.AppNotifications;
-using WinUICommunity.Common.Helpers;
 using WinUICommunity.DemoApp.Pages;
 
 namespace WinUICommunity.DemoApp.AppNotification;

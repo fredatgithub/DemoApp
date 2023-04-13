@@ -5,8 +5,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using Windows.Storage;
-using WinUICommunity.Common.Helpers;
-using WinUICommunity.Common.Tools;
 using WinUICommunity.DemoApp.AppNotification;
 using WinUICommunity.DemoApp.Pages;
 
@@ -14,6 +12,7 @@ namespace WinUICommunity.DemoApp;
 
 public partial class App : Application
 {
+    public ThemeManager themeManager { get; set; }
     private NotificationManager notificationManager;
     public App()
     {
@@ -71,7 +70,15 @@ public partial class App : Application
     protected override async void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
     {
         m_window = new MainWindow();
-        ThemeHelper.Initialize(m_window, BackdropType.MicaAlt);
+        themeManager = new ThemeManager(m_window, new ThemeOptions
+        {
+            BackdropType = BackdropType.MicaAlt,
+            ElementTheme = ElementTheme.Default,
+            TitleBarCustomization = new TitleBarCustomization
+            {
+                TitleBarType = TitleBarType.AppWindow
+            }
+        });
         if (!ApplicationHelper.IsPackaged)
         {
             notificationManager.Init(notificationManager, OnNotificationInvoked);

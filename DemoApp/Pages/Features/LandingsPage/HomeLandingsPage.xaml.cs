@@ -1,9 +1,5 @@
-// Copyright (c) Microsoft Corporation and Contributors.
-// Licensed under the MIT License.
-
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
-using WinUICommunity.Shared.DataModel;
 
 namespace WinUICommunity.DemoApp.Pages
 {
@@ -16,7 +12,7 @@ namespace WinUICommunity.DemoApp.Pages
 
         private void mainLandingsPage_Loaded(object sender, RoutedEventArgs e)
         {
-            mainLandingsPage.GetDataAsync("DataModel/ControlInfoData.json");
+            mainLandingsPage.GetDataAsync("DataModel/ControlInfoData.json", PathType.Relative);
         }
 
         private void mainLandingsPage_OnItemClick(object sender, RoutedEventArgs e)

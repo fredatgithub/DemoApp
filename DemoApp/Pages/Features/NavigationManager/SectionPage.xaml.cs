@@ -1,10 +1,5 @@
-// Copyright (c) Microsoft Corporation and Contributors.
-// Licensed under the MIT License.
-
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Navigation;
-using WinUICommunity.LandingsPage.Controls;
-using WinUICommunity.Shared.DataModel;
 
 namespace WinUICommunity.DemoApp.Pages
 {
@@ -25,7 +20,7 @@ namespace WinUICommunity.DemoApp.Pages
         {
             var args = (ItemClickEventArgs)e;
             var item = (ControlInfoDataItem)args.ClickedItem;
-            WinUICommunity.Common.Helpers.NavigationViewHelper.GetCurrent().Navigate(typeof(ItemPage), item.UniqueId);
+            NavigationManagerPage.Instance.NavWithJson2.NavigateForJson(typeof(ItemPage), item.UniqueId);
         }
     }
 }

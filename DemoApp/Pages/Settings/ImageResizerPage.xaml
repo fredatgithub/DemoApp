@@ -2,7 +2,7 @@
     x:Class="WinUICommunity.DemoApp.Pages.ImageResizerPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:controls="using:WinUICommunity.SettingsUI.Controls"
+    xmlns:wuc="using:WinUICommunity"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:models="using:WinUICommunity.DemoApp.Models"
@@ -10,28 +10,28 @@
     <Page.Resources>
         <Style TargetType="ListViewItem" BasedOn="{StaticResource ListViewItemSettingStyle}"/>
     </Page.Resources>
-    <controls:SettingsPageControl
+    <wuc:SettingsPageControl
         ModuleDescription="Lets you resize images by right-clicking."
         ModuleImageSource="ms-appx:///Assets/Modules/ImageResizer.png"
         ModuleTitle="Image Resizer"
         SecondaryLinksHeader="Attribution">
-        <controls:SettingsPageControl.ModuleContent>
+        <wuc:SettingsPageControl.ModuleContent>
             <StackPanel ChildrenTransitions="{StaticResource SettingsCardsAnimations}">
-                <controls:Setting Header="Enable Image Resizer">
-                    <controls:Setting.Icon>
+                <wuc:Setting Header="Enable Image Resizer">
+                    <wuc:Setting.Icon>
                         <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/FluentIcons/FluentIconsImageResizer.png"/>
-                    </controls:Setting.Icon>
-                    <controls:Setting.ActionContent>
+                    </wuc:Setting.Icon>
+                    <wuc:Setting.ActionContent>
                         <ToggleSwitch/>
-                    </controls:Setting.ActionContent>
-                </controls:Setting>
+                    </wuc:Setting.ActionContent>
+                </wuc:Setting>
 
-                <controls:SettingsGroup Header="Image sizes">
-                    <controls:Setting Header="Image sizes" Icon="&#xE2B2;">
-                        <controls:Setting.ActionContent>
+                <wuc:SettingsGroup Header="Image sizes">
+                    <wuc:Setting Header="Image sizes" Icon="&#xE2B2;">
+                        <wuc:Setting.ActionContent>
                             <Button Content="Add a size" Style="{ThemeResource AccentButtonStyle}"/>
-                        </controls:Setting.ActionContent>
-                    </controls:Setting>
+                        </wuc:Setting.ActionContent>
+                    </wuc:Setting>
                     <ListView
                         ItemsSource="{x:Bind Sizes, Mode=TwoWay}"
                         ScrollViewer.HorizontalScrollBarVisibility="Auto"
@@ -174,20 +174,20 @@
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
-                </controls:SettingsGroup>
-                <controls:SettingsGroup Header="Encoding">
-                    <controls:Setting Header="Fallback encoder">
-                        <controls:Setting.ActionContent>
+                </wuc:SettingsGroup>
+                <wuc:SettingsGroup Header="Encoding">
+                    <wuc:Setting Header="Fallback encoder">
+                        <wuc:Setting.ActionContent>
                             <ComboBox MinWidth="{StaticResource SettingActionControlMinWidth}" SelectedIndex="2">
                                 <ComboBoxItem Content="PNG encoder"/>
                                 <ComboBoxItem Content="BMP encoder"/>
                                 <ComboBoxItem Content="JPEG encoder"/>
                                 <ComboBoxItem Content="TIFF encoder"/>
                             </ComboBox>
-                        </controls:Setting.ActionContent>
-                    </controls:Setting>
-                    <controls:Setting Header="JPEG quality level">
-                        <controls:Setting.ActionContent>
+                        </wuc:Setting.ActionContent>
+                    </wuc:Setting>
+                    <wuc:Setting Header="JPEG quality level">
+                        <wuc:Setting.ActionContent>
                             <NumberBox
                                 MinWidth="{StaticResource SettingActionControlMinWidth}"
                                 HorizontalAlignment="Right"
@@ -195,21 +195,21 @@
                                 Minimum="0"
                                 SpinButtonPlacementMode="Compact"
                                 Value="90"/>
-                        </controls:Setting.ActionContent>
-                    </controls:Setting>
+                        </wuc:Setting.ActionContent>
+                    </wuc:Setting>
 
-                    <controls:Setting Header="PNG interlacing">
-                        <controls:Setting.ActionContent>
+                    <wuc:Setting Header="PNG interlacing">
+                        <wuc:Setting.ActionContent>
                             <ComboBox MinWidth="{StaticResource SettingActionControlMinWidth}" SelectedIndex="0">
                                 <ComboBoxItem Content="Default"/>
                                 <ComboBoxItem Content="On"/>
                                 <ComboBoxItem Content="Off"/>
                             </ComboBox>
-                        </controls:Setting.ActionContent>
-                    </controls:Setting>
+                        </wuc:Setting.ActionContent>
+                    </wuc:Setting>
 
-                    <controls:Setting Header="TIFF compression">
-                        <controls:Setting.ActionContent>
+                    <wuc:Setting Header="TIFF compression">
+                        <wuc:Setting.ActionContent>
                             <ComboBox MinWidth="{StaticResource SettingActionControlMinWidth}" SelectedIndex="0">
                                 <ComboBoxItem Content="Default"/>
                                 <ComboBoxItem Content="None"/>
@@ -217,14 +217,14 @@
                                 <ComboBoxItem Content="CCITT4"/>
                                 <ComboBoxItem Content="LZW"/>
                             </ComboBox>
-                        </controls:Setting.ActionContent>
-                    </controls:Setting>
-                </controls:SettingsGroup>
-                <controls:SettingsGroup Header="File">
-                    <controls:SettingExpander IsExpanded="True">
-                        <controls:SettingExpander.Header>
-                            <controls:Setting Header="Filename format" Style="{StaticResource ExpanderHeaderSettingStyle}">
-                                <controls:Setting.ActionContent>
+                        </wuc:Setting.ActionContent>
+                    </wuc:Setting>
+                </wuc:SettingsGroup>
+                <wuc:SettingsGroup Header="File">
+                    <wuc:SettingExpander IsExpanded="True">
+                        <wuc:SettingExpander.Header>
+                            <wuc:Setting Header="Filename format" Style="{StaticResource ExpanderHeaderSettingStyle}">
+                                <wuc:Setting.ActionContent>
                                     <StackPanel Orientation="Horizontal" Spacing="4">
                                         <TextBox
                                             MinWidth="{StaticResource SettingActionControlMinWidth}"
@@ -252,22 +252,22 @@
                                             </Button.Flyout>
                                         </Button>
                                     </StackPanel>
-                                </controls:Setting.ActionContent>
-                            </controls:Setting>
-                        </controls:SettingExpander.Header>
-                        <controls:SettingExpander.Content>
+                                </wuc:Setting.ActionContent>
+                            </wuc:Setting>
+                        </wuc:SettingExpander.Header>
+                        <wuc:SettingExpander.Content>
                             <CheckBox Margin="16,8,0,8" Content="Use original date modified"/>
-                        </controls:SettingExpander.Content>
-                    </controls:SettingExpander>
-                </controls:SettingsGroup>
+                        </wuc:SettingExpander.Content>
+                    </wuc:SettingExpander>
+                </wuc:SettingsGroup>
             </StackPanel>
-        </controls:SettingsPageControl.ModuleContent>
+        </wuc:SettingsPageControl.ModuleContent>
 
-        <controls:SettingsPageControl.PrimaryLinks>
-            <controls:PageLink Link="https://aka.ms/PowerToysOverview_ImageResizer" Text="Learn more about Image Resizer"/>
-        </controls:SettingsPageControl.PrimaryLinks>
-        <controls:SettingsPageControl.SecondaryLinks>
-            <controls:PageLink Link="https://github.com/bricelam/ImageResizer/" Text="Brice Lambson's ImageResizer"/>
-        </controls:SettingsPageControl.SecondaryLinks>
-    </controls:SettingsPageControl>
+        <wuc:SettingsPageControl.PrimaryLinks>
+            <wuc:PageLink Link="https://aka.ms/PowerToysOverview_ImageResizer" Text="Learn more about Image Resizer"/>
+        </wuc:SettingsPageControl.PrimaryLinks>
+        <wuc:SettingsPageControl.SecondaryLinks>
+            <wuc:PageLink Link="https://github.com/bricelam/ImageResizer/" Text="Brice Lambson's ImageResizer"/>
+        </wuc:SettingsPageControl.SecondaryLinks>
+    </wuc:SettingsPageControl>
 </Page>

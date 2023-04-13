@@ -1,6 +1,5 @@
 ﻿using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
-using WinUICommunity.Common.Helpers;
 using WinUICommunity.DemoApp.AppNotification;
 
 namespace WinUICommunity.DemoApp.Pages;

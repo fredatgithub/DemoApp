@@ -2,54 +2,54 @@
     x:Class="WinUICommunity.DemoApp.Pages.PowerRenamePage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:controls="using:WinUICommunity.SettingsUI.Controls"
+    xmlns:wuc="using:WinUICommunity"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <controls:SettingsPageControl
+    <wuc:SettingsPageControl
         ModuleDescription="A Windows Shell extension for more advanced bulk renaming using search and replace or regular expressions."
         ModuleImageSource="ms-appx:///Assets/Modules/PowerRename.png"
         ModuleTitle="PowerRename"
         SecondaryLinksHeader="Attribution">
-        <controls:SettingsPageControl.ModuleContent>
+        <wuc:SettingsPageControl.ModuleContent>
             <StackPanel HorizontalAlignment="Stretch" Orientation="Vertical" ChildrenTransitions="{StaticResource SettingsCardsAnimations}">
-                <controls:Setting Header="Enable PowerRename">
-                    <controls:Setting.Icon>
+                <wuc:Setting Header="Enable PowerRename">
+                    <wuc:Setting.Icon>
                         <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/FluentIcons/FluentIconsPowerRename.png"/>
-                    </controls:Setting.Icon>
-                    <controls:Setting.ActionContent>
+                    </wuc:Setting.Icon>
+                    <wuc:Setting.ActionContent>
                         <ToggleSwitch/>
-                    </controls:Setting.ActionContent>
-                </controls:Setting>
+                    </wuc:Setting.ActionContent>
+                </wuc:Setting>
 
-                <controls:SettingsGroup Header="Shell integration">
-                    <controls:Setting Header="Show icon on context menu">
-                        <controls:Setting.ActionContent>
+                <wuc:SettingsGroup Header="Shell integration">
+                    <wuc:Setting Header="Show icon on context menu">
+                        <wuc:Setting.ActionContent>
                             <ToggleSwitch/>
-                        </controls:Setting.ActionContent>
-                    </controls:Setting>
+                        </wuc:Setting.ActionContent>
+                    </wuc:Setting>
 
-                    <controls:Setting Description="Press Shift + right-click on files to open the extended menu" Header="Appear only in extended context menu">
-                        <controls:Setting.ActionContent>
+                    <wuc:Setting Description="Press Shift + right-click on files to open the extended menu" Header="Appear only in extended context menu">
+                        <wuc:Setting.ActionContent>
                             <ToggleSwitch/>
-                        </controls:Setting.ActionContent>
-                    </controls:Setting>
-                </controls:SettingsGroup>
+                        </wuc:Setting.ActionContent>
+                    </wuc:Setting>
+                </wuc:SettingsGroup>
 
-                <controls:SettingsGroup Header="Auto-complete">
-                    <controls:SettingExpander IsExpanded="True">
-                        <controls:SettingExpander.Header>
-                            <controls:Setting Header="Enable auto-complete for the search and replace fields" Style="{StaticResource ExpanderHeaderSettingStyle}">
-                                <controls:Setting.ActionContent>
+                <wuc:SettingsGroup Header="Auto-complete">
+                    <wuc:SettingExpander IsExpanded="True">
+                        <wuc:SettingExpander.Header>
+                            <wuc:Setting Header="Enable auto-complete for the search and replace fields" Style="{StaticResource ExpanderHeaderSettingStyle}">
+                                <wuc:Setting.ActionContent>
                                     <ToggleSwitch/>
-                                </controls:Setting.ActionContent>
-                            </controls:Setting>
-                        </controls:SettingExpander.Header>
-                        <controls:SettingExpander.Content>
+                                </wuc:Setting.ActionContent>
+                            </wuc:Setting>
+                        </wuc:SettingExpander.Header>
+                        <wuc:SettingExpander.Content>
                             <StackPanel HorizontalAlignment="Stretch">
-                                <controls:Setting Header="Maximum number of items" Style="{StaticResource ExpanderContentSettingStyle}">
-                                    <controls:Setting.ActionContent>
+                                <wuc:Setting Header="Maximum number of items" Style="{StaticResource ExpanderContentSettingStyle}">
+                                    <wuc:Setting.ActionContent>
                                         <NumberBox
                                             MinWidth="{StaticResource SettingActionControlMinWidth}"
                                             HorizontalAlignment="Left"
@@ -57,33 +57,33 @@
                                             Minimum="0"
                                             SpinButtonPlacementMode="Compact"
                                             Value="10"/>
-                                    </controls:Setting.ActionContent>
-                                </controls:Setting>
+                                    </wuc:Setting.ActionContent>
+                                </wuc:Setting>
                             </StackPanel>
-                        </controls:SettingExpander.Content>
-                    </controls:SettingExpander>
-                    <controls:Setting Header="Show recently used strings">
-                        <controls:Setting.ActionContent>
+                        </wuc:SettingExpander.Content>
+                    </wuc:SettingExpander>
+                    <wuc:Setting Header="Show recently used strings">
+                        <wuc:Setting.ActionContent>
                             <ToggleSwitch/>
-                        </controls:Setting.ActionContent>
-                    </controls:Setting>
-                </controls:SettingsGroup>
+                        </wuc:Setting.ActionContent>
+                    </wuc:Setting>
+                </wuc:SettingsGroup>
 
-                <controls:SettingsGroup Header="Behavior">
-                    <controls:Setting Description="Provides extended features but may use different regex syntax" Header="Use Boost library">
-                        <controls:Setting.ActionContent>
+                <wuc:SettingsGroup Header="Behavior">
+                    <wuc:Setting Description="Provides extended features but may use different regex syntax" Header="Use Boost library">
+                        <wuc:Setting.ActionContent>
                             <ToggleSwitch/>
-                        </controls:Setting.ActionContent>
-                    </controls:Setting>
-                </controls:SettingsGroup>
+                        </wuc:Setting.ActionContent>
+                    </wuc:Setting>
+                </wuc:SettingsGroup>
             </StackPanel>
-        </controls:SettingsPageControl.ModuleContent>
+        </wuc:SettingsPageControl.ModuleContent>
 
-        <controls:SettingsPageControl.PrimaryLinks>
-            <controls:PageLink Link="https://aka.ms/PowerToysOverview_PowerRename" Text="Learn more about PowerRename"/>
-        </controls:SettingsPageControl.PrimaryLinks>
-        <controls:SettingsPageControl.SecondaryLinks>
-            <controls:PageLink Link="https://github.com/chrdavis/SmartRename" Text="Chris Davis's SmartRenamer"/>
-        </controls:SettingsPageControl.SecondaryLinks>
-    </controls:SettingsPageControl>
+        <wuc:SettingsPageControl.PrimaryLinks>
+            <wuc:PageLink Link="https://aka.ms/PowerToysOverview_PowerRename" Text="Learn more about PowerRename"/>
+        </wuc:SettingsPageControl.PrimaryLinks>
+        <wuc:SettingsPageControl.SecondaryLinks>
+            <wuc:PageLink Link="https://github.com/chrdavis/SmartRename" Text="Chris Davis's SmartRenamer"/>
+        </wuc:SettingsPageControl.SecondaryLinks>
+    </wuc:SettingsPageControl>
 </Page>

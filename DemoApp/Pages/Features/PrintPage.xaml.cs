@@ -2,8 +2,6 @@
 using Microsoft.UI.Xaml.Controls;
 using System.Collections.Generic;
 using Windows.Graphics.Printing;
-using WinUICommunity.Common.Extensions;
-using WinUICommunity.Common.Helpers;
 
 namespace WinUICommunity.DemoApp.Pages;
 public sealed partial class PrintPage : Page

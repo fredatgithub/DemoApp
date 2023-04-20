@@ -13,47 +13,41 @@
         ModuleTitle="Keyboard Manager">
         <wuc:SettingsPageControl.ModuleContent>
             <StackPanel Orientation="Vertical" ChildrenTransitions="{StaticResource SettingsCardsAnimations}">
-                <wuc:Setting Header="Enable Keyboard Manager">
-                    <wuc:Setting.Icon>
+                <wuc:SettingsCard Header="Enable Keyboard Manager">
+                    <wuc:SettingsCard.HeaderIcon>
                         <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/FluentIcons/FluentIconsKeyboardManager.png"/>
-                    </wuc:Setting.Icon>
-                    <wuc:Setting.ActionContent>
-                        <ToggleSwitch/>
-                    </wuc:Setting.ActionContent>
-                    <wuc:Setting.Description>
+                    </wuc:SettingsCard.HeaderIcon>
+                    <ToggleSwitch/>
+                    <wuc:SettingsCard.Description>
                         <HyperlinkButton NavigateUri="https://aka.ms/powerToysCannotRemapKeys">
                             <TextBlock FontWeight="SemiBold" Text="Learn more about remapping limitations"/>
                         </HyperlinkButton>
-                    </wuc:Setting.Description>
-                </wuc:Setting>
+                    </wuc:SettingsCard.Description>
+                </wuc:SettingsCard>
 
                 <wuc:SettingsGroup Header="Keys" IsEnabled="False">
 
                     <Button Style="{StaticResource SettingButtonStyle}">
-                        <wuc:Setting
+                        <wuc:SettingsCard
                             Description="Remap keys to other keys or shortcuts"
                             Header="Remap a key"
-                            Icon="&#xE92E;"
+                            HeaderIcon="&#xE92E;"
                             Style="{StaticResource ExpanderHeaderSettingStyle}">
-                            <wuc:Setting.ActionContent>
-                                <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xE8A7;"/>
-                            </wuc:Setting.ActionContent>
-                        </wuc:Setting>
+                            <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xE8A7;"/>
+                        </wuc:SettingsCard>
                     </Button>
 
                 </wuc:SettingsGroup>
 
                 <wuc:SettingsGroup Header="Shortcuts" IsEnabled="False">
                     <Button Style="{StaticResource SettingButtonStyle}">
-                        <wuc:Setting
+                        <wuc:SettingsCard
                             Description="Remap shortcuts to other shortcuts or keys for all or specific applications"
                             Header="Remap a shortcut"
-                            Icon="&#xE92E;"
+                            HeaderIcon="&#xE92E;"
                             Style="{StaticResource ExpanderHeaderSettingStyle}">
-                            <wuc:Setting.ActionContent>
-                                <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xE8A7;"/>
-                            </wuc:Setting.ActionContent>
-                        </wuc:Setting>
+                            <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xE8A7;"/>
+                        </wuc:SettingsCard>
                     </Button>
                 </wuc:SettingsGroup>
             </StackPanel>

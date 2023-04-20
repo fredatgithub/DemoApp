@@ -13,61 +13,56 @@
         ModuleTitle="FancyZones">
         <wuc:SettingsPageControl.ModuleContent>
             <StackPanel Orientation="Vertical" ChildrenTransitions="{StaticResource SettingsCardsAnimations}">
-                <wuc:Setting Header="Enable FancyZones">
-                    <wuc:Setting.Icon>
+                <wuc:SettingsCard Header="Enable FancyZones">
+                    <wuc:SettingsCard.HeaderIcon>
                         <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/FluentIcons/FluentIconsFancyZones.png"/>
-                    </wuc:Setting.Icon>
-                    <wuc:Setting.ActionContent>
-                        <ToggleSwitch/>
-                    </wuc:Setting.ActionContent>
-                </wuc:Setting>
+                    </wuc:SettingsCard.HeaderIcon>
+                    <ToggleSwitch/>
+                </wuc:SettingsCard>
 
                 <wuc:SettingsGroup Header="Editor">
                     <Button Style="{StaticResource SettingButtonStyle}">
-                        <wuc:Setting
+                        <wuc:SettingsCard
                             Description="Set and manage your layouts"
                             Header="Launch layout editor"
-                            Icon="&#xF246;"
+                            HeaderIcon="&#xF246;"
                             Style="{StaticResource ExpanderHeaderSettingStyle}">
-                            <wuc:Setting.ActionContent>
-                                <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xE2B4;"/>
-                            </wuc:Setting.ActionContent>
-                        </wuc:Setting>
+                            <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" Glyph="&#xE2B4;"/>
+
+                        </wuc:SettingsCard>
                     </Button>
 
-                    <wuc:SettingExpander IsExpanded="True">
-                        <wuc:SettingExpander.Header>
-                            <wuc:Setting
+                    <wuc:SettingsExpander IsExpanded="True">
+                        <wuc:SettingsExpander.Header>
+                            <wuc:SettingsCard
                                 Header="Activation shortcut"
-                                Icon="&#xEDA7;"
+                                HeaderIcon="&#xEDA7;"
                                 Style="{StaticResource ExpanderHeaderSettingStyle}"/>
-                        </wuc:SettingExpander.Header>
+                        </wuc:SettingsExpander.Header>
 
-                        <wuc:SettingExpander.Content>
+                        <wuc:SettingsExpander.Content>
                             <StackPanel>
-                                <wuc:Setting
+                                <wuc:SettingsCard
                                     Description="When using multiple screens, the editor will launch on the screen where the mouse cursor is"
                                     Header="Launch editor where mouse cursor is"
                                     Style="{StaticResource ExpanderContentSettingStyle}">
-                                    <wuc:Setting.ActionContent>
-                                        <ToggleSwitch/>
-                                    </wuc:Setting.ActionContent>
-                                </wuc:Setting>
+                                    <ToggleSwitch/>
+                                </wuc:SettingsCard>
                             </StackPanel>
-                        </wuc:SettingExpander.Content>
-                    </wuc:SettingExpander>
+                        </wuc:SettingsExpander.Content>
+                    </wuc:SettingsExpander>
                 </wuc:SettingsGroup>
 
                 <wuc:SettingsGroup Header="Zones">
-                    <wuc:SettingExpander IsExpanded="True">
-                        <wuc:SettingExpander.Header>
-                            <wuc:Setting
+                    <wuc:SettingsExpander IsExpanded="True">
+                        <wuc:SettingsExpander.Header>
+                            <wuc:SettingsCard
                                 Description="Manage how zones behave when using FancyZones"
                                 Header="Zone behaviors"
-                                Icon="&#xE620;"
+                                HeaderIcon="&#xE620;"
                                 Style="{StaticResource ExpanderHeaderSettingStyle}"/>
-                        </wuc:SettingExpander.Header>
-                        <wuc:SettingExpander.Content>
+                        </wuc:SettingsExpander.Header>
+                        <wuc:SettingsExpander.Content>
                             <StackPanel>
                                 <CheckBox Margin="{StaticResource ExpanderSettingMargin}" Content="Hold Shift key to activate zones while dragging"/>
                                 <Rectangle Style="{StaticResource ExpanderSeparatorStyle}"/>
@@ -75,41 +70,37 @@
                                 <Rectangle Style="{StaticResource ExpanderSeparatorStyle}"/>
                                 <CheckBox Margin="{StaticResource ExpanderSettingMargin}" Content="Show zones on all monitors while dragging a window"/>
                                 <Rectangle Style="{StaticResource ExpanderSeparatorStyle}"/>
-                                <wuc:Setting Header="When multiple zones overlap" Style="{StaticResource ExpanderContentSettingStyle}">
-                                    <wuc:Setting.ActionContent>
-                                        <ComboBox MinWidth="{StaticResource SettingActionControlMinWidth}">
-                                            <ComboBoxItem Content="Activate the smallest zone by area"/>
-                                            <ComboBoxItem Content="Activate the largest zone by area"/>
-                                            <ComboBoxItem Content="Split the overlapped area into multiple activation targets"/>
-                                            <ComboBoxItem Content="Activate the zone whose center is closest to the cursor"/>
-                                        </ComboBox>
-                                    </wuc:Setting.ActionContent>
-                                </wuc:Setting>
+                                <wuc:SettingsCard Header="When multiple zones overlap" Style="{StaticResource ExpanderContentSettingStyle}">
+                                    <ComboBox MinWidth="{StaticResource SettingActionControlMinWidth}">
+                                        <ComboBoxItem Content="Activate the smallest zone by area"/>
+                                        <ComboBoxItem Content="Activate the largest zone by area"/>
+                                        <ComboBoxItem Content="Split the overlapped area into multiple activation targets"/>
+                                        <ComboBoxItem Content="Activate the zone whose center is closest to the cursor"/>
+                                    </ComboBox>
+                                </wuc:SettingsCard>
 
-                                <wuc:Setting Header="Zone opacity" Style="{StaticResource ExpanderContentSettingStyle}">
-                                    <wuc:Setting.ActionContent>
-                                        <Slider
+                                <wuc:SettingsCard Header="Zone opacity" Style="{StaticResource ExpanderContentSettingStyle}">
+                                    <Slider
                                             MinWidth="{StaticResource SettingActionControlMinWidth}"
                                             HorizontalAlignment="Right"
                                             Maximum="100"
                                             Minimum="0"/>
-                                    </wuc:Setting.ActionContent>
-                                </wuc:Setting>
+                                </wuc:SettingsCard>
                             </StackPanel>
-                        </wuc:SettingExpander.Content>
-                    </wuc:SettingExpander>
+                        </wuc:SettingsExpander.Content>
+                    </wuc:SettingsExpander>
                 </wuc:SettingsGroup>
 
                 <wuc:SettingsGroup Header="Windows">
-                    <wuc:SettingExpander IsExpanded="True">
-                        <wuc:SettingExpander.Header>
-                            <wuc:Setting
+                    <wuc:SettingsExpander IsExpanded="True">
+                        <wuc:SettingsExpander.Header>
+                            <wuc:SettingsCard
                                 Description="Manage how windows behave when using FancyZones"
                                 Header="Window behavior"
-                                Icon="&#xE737;"
+                                HeaderIcon="&#xE737;"
                                 Style="{StaticResource ExpanderHeaderSettingStyle}"/>
-                        </wuc:SettingExpander.Header>
-                        <wuc:SettingExpander.Content>
+                        </wuc:SettingsExpander.Header>
+                        <wuc:SettingsExpander.Content>
                             <StackPanel>
                                 <CheckBox Margin="{StaticResource ExpanderSettingMargin}" Content="Keep windows in their zones when the screen resolution changes"/>
                                 <Rectangle Style="{StaticResource ExpanderSeparatorStyle}"/>
@@ -117,23 +108,21 @@
                                 <Rectangle Style="{StaticResource ExpanderSeparatorStyle}"/>
                                 <CheckBox Margin="{StaticResource ExpanderSettingMargin}" Content="Move newly created windows to their last known zone"/>
                             </StackPanel>
-                        </wuc:SettingExpander.Content>
-                    </wuc:SettingExpander>
+                        </wuc:SettingsExpander.Content>
+                    </wuc:SettingsExpander>
 
-                    <wuc:SettingExpander IsExpanded="True">
-                        <wuc:SettingExpander.Header>
-                            <wuc:Setting
+                    <wuc:SettingsExpander IsExpanded="True">
+                        <wuc:SettingsExpander.Header>
+                            <wuc:SettingsCard
                                 Description="This overrides the Windows Snap shortcut (Win + arrow) to move windows between zones"
                                 Header="Override windows snap"
-                                Icon="&#xE145;"
+                                HeaderIcon="&#xE145;"
                                 Style="{StaticResource ExpanderHeaderSettingStyle}">
-                                <wuc:Setting.ActionContent>
                                     <ToggleSwitch/>
-                                </wuc:Setting.ActionContent>
-                            </wuc:Setting>
-                        </wuc:SettingExpander.Header>
+                                </wuc:SettingsCard>
+                        </wuc:SettingsExpander.Header>
 
-                        <wuc:SettingExpander.Content>
+                        <wuc:SettingsExpander.Content>
                             <StackPanel>
                                 <RadioButton
                                     Margin="{StaticResource ExpanderSettingMargin}"
@@ -146,42 +135,40 @@
                                 <Rectangle Style="{StaticResource ExpanderSeparatorStyle}"/>
                                 <CheckBox Margin="56,8,16,8" Content="Move windows between zones across all monitors"/>
                             </StackPanel>
-                        </wuc:SettingExpander.Content>
-                    </wuc:SettingExpander>
+                        </wuc:SettingsExpander.Content>
+                    </wuc:SettingsExpander>
                 </wuc:SettingsGroup>
 
                 <wuc:SettingsGroup Header="Layouts">
-                    <wuc:SettingExpander IsExpanded="True">
-                        <wuc:SettingExpander.Header>
-                            <wuc:Setting
+                    <wuc:SettingsExpander IsExpanded="True">
+                        <wuc:SettingsExpander.Header>
+                            <wuc:SettingsCard
                                 Description="You can configure layout-specific shortcuts in the editor"
                                 Header="Enable quick layout switch"
-                                Icon="&#xE737;"
+                                HeaderIcon="&#xE737;"
                                 Style="{StaticResource ExpanderHeaderSettingStyle}">
-                                <wuc:Setting.ActionContent>
-                                    <ToggleSwitch/>
-                                </wuc:Setting.ActionContent>
-                            </wuc:Setting>
-                        </wuc:SettingExpander.Header>
+                                <ToggleSwitch/>
+                                </wuc:SettingsCard>
+                        </wuc:SettingsExpander.Header>
 
-                        <wuc:SettingExpander.Content>
+                        <wuc:SettingsExpander.Content>
                             <StackPanel>
                                 <CheckBox Margin="{StaticResource ExpanderSettingMargin}" Content="Flash zones when switching layout"/>
                             </StackPanel>
-                        </wuc:SettingExpander.Content>
-                    </wuc:SettingExpander>
+                        </wuc:SettingsExpander.Content>
+                    </wuc:SettingsExpander>
                 </wuc:SettingsGroup>
 
                 <wuc:SettingsGroup Header="Excluded apps">
-                    <wuc:SettingExpander IsExpanded="True">
-                        <wuc:SettingExpander.Header>
-                            <wuc:Setting
+                    <wuc:SettingsExpander IsExpanded="True">
+                        <wuc:SettingsExpander.Header>
+                            <wuc:SettingsCard
                                 Description="Excludes an application from snapping to zones and will only react to Windows Snap - add one application name per line"
                                 Header="Exclude apps"
-                                Icon="&#xE103;"
+                                HeaderIcon="&#xE103;"
                                 Style="{StaticResource ExpanderHeaderSettingStyle}"/>
-                        </wuc:SettingExpander.Header>
-                        <wuc:SettingExpander.Content>
+                        </wuc:SettingsExpander.Header>
+                        <wuc:SettingsExpander.Content>
                             <TextBox
                                 MinWidth="240"
                                 MinHeight="160"
@@ -192,8 +179,8 @@
                                 ScrollViewer.VerticalScrollBarVisibility="Visible"
                                 ScrollViewer.VerticalScrollMode="Enabled"
                                 TextWrapping="Wrap"/>
-                        </wuc:SettingExpander.Content>
-                    </wuc:SettingExpander>
+                        </wuc:SettingsExpander.Content>
+                    </wuc:SettingsExpander>
                 </wuc:SettingsGroup>
             </StackPanel>
         </wuc:SettingsPageControl.ModuleContent>

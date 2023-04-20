@@ -14,67 +14,53 @@
         SecondaryLinksHeader="Attribution">
         <wuc:SettingsPageControl.ModuleContent>
             <StackPanel HorizontalAlignment="Stretch" Orientation="Vertical" ChildrenTransitions="{StaticResource SettingsCardsAnimations}">
-                <wuc:Setting Header="Enable PowerRename">
-                    <wuc:Setting.Icon>
+                <wuc:SettingsCard Header="Enable PowerRename">
+                    <wuc:SettingsCard.HeaderIcon>
                         <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/FluentIcons/FluentIconsPowerRename.png"/>
-                    </wuc:Setting.Icon>
-                    <wuc:Setting.ActionContent>
-                        <ToggleSwitch/>
-                    </wuc:Setting.ActionContent>
-                </wuc:Setting>
+                    </wuc:SettingsCard.HeaderIcon>
+                    <ToggleSwitch/>
+                </wuc:SettingsCard>
 
                 <wuc:SettingsGroup Header="Shell integration">
-                    <wuc:Setting Header="Show icon on context menu">
-                        <wuc:Setting.ActionContent>
-                            <ToggleSwitch/>
-                        </wuc:Setting.ActionContent>
-                    </wuc:Setting>
+                    <wuc:SettingsCard Header="Show icon on context menu">
+                        <ToggleSwitch/>
+                    </wuc:SettingsCard>
 
-                    <wuc:Setting Description="Press Shift + right-click on files to open the extended menu" Header="Appear only in extended context menu">
-                        <wuc:Setting.ActionContent>
-                            <ToggleSwitch/>
-                        </wuc:Setting.ActionContent>
-                    </wuc:Setting>
+                    <wuc:SettingsCard Description="Press Shift + right-click on files to open the extended menu" Header="Appear only in extended context menu">
+                        <ToggleSwitch/>
+                    </wuc:SettingsCard>
                 </wuc:SettingsGroup>
 
                 <wuc:SettingsGroup Header="Auto-complete">
-                    <wuc:SettingExpander IsExpanded="True">
-                        <wuc:SettingExpander.Header>
-                            <wuc:Setting Header="Enable auto-complete for the search and replace fields" Style="{StaticResource ExpanderHeaderSettingStyle}">
-                                <wuc:Setting.ActionContent>
-                                    <ToggleSwitch/>
-                                </wuc:Setting.ActionContent>
-                            </wuc:Setting>
-                        </wuc:SettingExpander.Header>
-                        <wuc:SettingExpander.Content>
+                    <wuc:SettingsExpander IsExpanded="True">
+                        <wuc:SettingsExpander.Header>
+                            <wuc:SettingsCard Header="Enable auto-complete for the search and replace fields" Style="{StaticResource ExpanderHeaderSettingStyle}">
+                                <ToggleSwitch/>
+                            </wuc:SettingsCard>
+                        </wuc:SettingsExpander.Header>
+                        <wuc:SettingsExpander.Content>
                             <StackPanel HorizontalAlignment="Stretch">
-                                <wuc:Setting Header="Maximum number of items" Style="{StaticResource ExpanderContentSettingStyle}">
-                                    <wuc:Setting.ActionContent>
-                                        <NumberBox
+                                <wuc:SettingsCard Header="Maximum number of items" Style="{StaticResource ExpanderContentSettingStyle}">
+                                    <NumberBox
                                             MinWidth="{StaticResource SettingActionControlMinWidth}"
                                             HorizontalAlignment="Left"
                                             Maximum="20"
                                             Minimum="0"
                                             SpinButtonPlacementMode="Compact"
                                             Value="10"/>
-                                    </wuc:Setting.ActionContent>
-                                </wuc:Setting>
+                                </wuc:SettingsCard>
                             </StackPanel>
-                        </wuc:SettingExpander.Content>
-                    </wuc:SettingExpander>
-                    <wuc:Setting Header="Show recently used strings">
-                        <wuc:Setting.ActionContent>
-                            <ToggleSwitch/>
-                        </wuc:Setting.ActionContent>
-                    </wuc:Setting>
+                        </wuc:SettingsExpander.Content>
+                    </wuc:SettingsExpander>
+                    <wuc:SettingsCard Header="Show recently used strings">
+                        <ToggleSwitch/>
+                    </wuc:SettingsCard>
                 </wuc:SettingsGroup>
 
                 <wuc:SettingsGroup Header="Behavior">
-                    <wuc:Setting Description="Provides extended features but may use different regex syntax" Header="Use Boost library">
-                        <wuc:Setting.ActionContent>
-                            <ToggleSwitch/>
-                        </wuc:Setting.ActionContent>
-                    </wuc:Setting>
+                    <wuc:SettingsCard Description="Provides extended features but may use different regex syntax" Header="Use Boost library">
+                        <ToggleSwitch/>
+                    </wuc:SettingsCard>
                 </wuc:SettingsGroup>
             </StackPanel>
         </wuc:SettingsPageControl.ModuleContent>

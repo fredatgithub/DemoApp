@@ -241,7 +241,6 @@
                                Description="The SettingsExpander has the same properties as a Card, and you can set SettingsCard as part of the Items collection."
                                Header="SettingsExpander"
                                IsExpanded="{x:Bind IsCardExpanded, Mode=OneWay}">
-                    <!--  TODO: This should be TwoWay bound but throws compile error in Uno.  -->
                     <labs:SettingsExpander.HeaderIcon>
                         <FontIcon Glyph="&#xE91B;" />
                     </labs:SettingsExpander.HeaderIcon>

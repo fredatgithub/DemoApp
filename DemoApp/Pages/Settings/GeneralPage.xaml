@@ -11,9 +11,9 @@
             <StackPanel Orientation="Vertical" ChildrenTransitions="{StaticResource SettingsCardsAnimations}">
                 <wuc:SettingsGroup Margin="0,-32,0,0"
                                         Header="Version">
-                    <wuc:Setting Header="v0.45.0"
-                                      Icon="&#xE117;">
-                        <wuc:Setting.Description>
+                    <wuc:SettingsCard Header="v0.45.0"
+                                      HeaderIcon="&#xE117;">
+                        <wuc:SettingsCard.Description>
                             <StackPanel Orientation="Vertical">
                                 <TextBlock Style="{StaticResource SecondaryTextStyle}">
                                     <Run Text="Last Checked" />
@@ -23,91 +23,78 @@
                                                  Content="Release notes"
                                                  NavigateUri="https://github.com/microsoft/PowerToys/releases/" />
                             </StackPanel>
-                        </wuc:Setting.Description>
-                        <wuc:Setting.ActionContent>
-                            <StackPanel VerticalAlignment="Center"
+                        </wuc:SettingsCard.Description>
+                        <StackPanel VerticalAlignment="Center"
                                         Orientation="Horizontal"
                                         Spacing="18">
-                                <ProgressRing Width="24"
+                            <ProgressRing Width="24"
                                               Height="24" />
-                                <TextBlock VerticalAlignment="Center"
+                            <TextBlock VerticalAlignment="Center"
                                            FontWeight="SemiBold"
                                            Foreground="{ThemeResource TextFillColorSecondaryBrush}"
                                            Text="Checking For Updates" />
-                                <Button HorizontalAlignment="Right"
+                            <Button HorizontalAlignment="Right"
                                         Content="Check For Updates" />
-                            </StackPanel>
-                        </wuc:Setting.ActionContent>
-                    </wuc:Setting>
+                        </StackPanel>
+                    </wuc:SettingsCard>
 
                     <InfoBar Title="Up To Date"
                              IsClosable="False"
                              IsOpen="True"
                              Severity="Success" />
 
-                    <wuc:Setting Margin="0,-6,0,0"
+                    <wuc:SettingsCard Margin="0,-6,0,0"
                                       Description="Except on metered conections"
                                       Header="Download updates automatically">
                         <ToggleSwitch />
-                    </wuc:Setting>
+                    </wuc:SettingsCard>
                 </wuc:SettingsGroup>
                 <wuc:SettingsGroup Header="Administrator mode">
-                    <wuc:SettingExpander IsExpanded="True">
-                        <wuc:SettingExpander.Header>
-                            <wuc:Setting Description="Running as user"
+                    <wuc:SettingsExpander IsExpanded="True">
+                        <wuc:SettingsExpander.Header>
+                            <wuc:SettingsCard Description="Running as user"
                                               Header="Administrator mode"
-                                              Icon="&#xE1A7;"
+                                              HeaderIcon="&#xE1A7;"
                                               Style="{StaticResource ExpanderHeaderSettingStyle}">
-                                <wuc:Setting.ActionContent>
-                                    <Button Content="Restart Demo as administrator" />
-                                </wuc:Setting.ActionContent>
-                            </wuc:Setting>
-                        </wuc:SettingExpander.Header>
-                        <wuc:SettingExpander.Content>
+                                <Button Content="Restart Demo as administrator" />
+                            </wuc:SettingsCard>
+                        </wuc:SettingsExpander.Header>
+                        <wuc:SettingsExpander.Content>
                             <StackPanel Orientation="Vertical">
-                                <wuc:Setting Header="Always run as administrator"
+                                <wuc:SettingsCard Header="Always run as administrator"
                                                   IsEnabled="False"
                                                   Style="{StaticResource ExpanderContentSettingStyle}">
-                                    <wuc:Setting.Description>
+                                    <wuc:SettingsCard.Description>
                                         <HyperlinkButton Content="Learn more about administrator mode"
                                                          NavigateUri="https://aka.ms/powertoysDetectedElevatedHelp" />
-                                    </wuc:Setting.Description>
+                                    </wuc:SettingsCard.Description>
 
-                                    <!--  This causes an error  -->
-
-                                    <!--<wuc:Setting.ActionContent>
-                                        <ToggleSwitch/>
-                                    </wuc:Setting.ActionContent>-->
-                                </wuc:Setting>
+                                </wuc:SettingsCard>
                                 <InfoBar Title="You need to run as administrator to use this setting."
                                          IsClosable="False"
                                          IsOpen="True"
                                          Severity="Warning" />
                             </StackPanel>
-                        </wuc:SettingExpander.Content>
-                    </wuc:SettingExpander>
+                        </wuc:SettingsExpander.Content>
+                    </wuc:SettingsExpander>
                 </wuc:SettingsGroup>
                 <wuc:SettingsGroup Header="Appearance &amp; behavior">
-                    <wuc:Setting Header="Choose a mode"
-                                      Icon="&#xE771;">
-                        <wuc:Setting.Description>
+                    <wuc:SettingsCard Header="Choose a mode"
+                                      HeaderIcon="&#xE771;">
+                        <wuc:SettingsCard.Description>
                             <HyperlinkButton Content="Windows color settings" />
-                        </wuc:Setting.Description>
-                        <wuc:Setting.ActionContent>
-                            <ComboBox MinWidth="{StaticResource SettingActionControlMinWidth}"
+                        </wuc:SettingsCard.Description>
+                        <ComboBox MinWidth="{StaticResource SettingActionControlMinWidth}"
                                       SelectedIndex="2">
-                                <ComboBoxItem Content="Dark" />
-                                <ComboBoxItem Content="Light" />
-                                <ComboBoxItem Content="Default" />
-                            </ComboBox>
-                        </wuc:Setting.ActionContent>
-                    </wuc:Setting>
-                    <wuc:Setting Description="Demo will launch automatically"
+                            <ComboBoxItem Content="Dark" />
+                            <ComboBoxItem Content="Light" />
+                            <ComboBoxItem Content="Default" />
+                        </ComboBox>
+                    </wuc:SettingsCard>
+                    <wuc:SettingsCard Description="Demo will launch automatically"
                                       Header="Run at startUp">
-                        <wuc:Setting.ActionContent>
-                            <ToggleSwitch />
-                        </wuc:Setting.ActionContent>
-                    </wuc:Setting>
+                        <ToggleSwitch />
+                    </wuc:SettingsCard>
                 </wuc:SettingsGroup>
                 <CheckBox Name="check"
                           Margin="56,0,40,16"

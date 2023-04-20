@@ -17,21 +17,17 @@
         SecondaryLinksHeader="Attribution">
         <wuc:SettingsPageControl.ModuleContent>
             <StackPanel ChildrenTransitions="{StaticResource SettingsCardsAnimations}">
-                <wuc:Setting Header="Enable Image Resizer">
-                    <wuc:Setting.Icon>
+                <wuc:SettingsCard Header="Enable Image Resizer">
+                    <wuc:SettingsCard.HeaderIcon>
                         <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/FluentIcons/FluentIconsImageResizer.png"/>
-                    </wuc:Setting.Icon>
-                    <wuc:Setting.ActionContent>
+                    </wuc:SettingsCard.HeaderIcon>
                         <ToggleSwitch/>
-                    </wuc:Setting.ActionContent>
-                </wuc:Setting>
+                    </wuc:SettingsCard>
 
                 <wuc:SettingsGroup Header="Image sizes">
-                    <wuc:Setting Header="Image sizes" Icon="&#xE2B2;">
-                        <wuc:Setting.ActionContent>
-                            <Button Content="Add a size" Style="{ThemeResource AccentButtonStyle}"/>
-                        </wuc:Setting.ActionContent>
-                    </wuc:Setting>
+                    <wuc:SettingsCard Header="Image sizes" HeaderIcon="&#xE2B2;">
+                        <Button Content="Add a size" Style="{ThemeResource AccentButtonStyle}"/>
+                    </wuc:SettingsCard>
                     <ListView
                         ItemsSource="{x:Bind Sizes, Mode=TwoWay}"
                         ScrollViewer.HorizontalScrollBarVisibility="Auto"
@@ -176,64 +172,55 @@
                     </ListView>
                 </wuc:SettingsGroup>
                 <wuc:SettingsGroup Header="Encoding">
-                    <wuc:Setting Header="Fallback encoder">
-                        <wuc:Setting.ActionContent>
-                            <ComboBox MinWidth="{StaticResource SettingActionControlMinWidth}" SelectedIndex="2">
-                                <ComboBoxItem Content="PNG encoder"/>
-                                <ComboBoxItem Content="BMP encoder"/>
-                                <ComboBoxItem Content="JPEG encoder"/>
-                                <ComboBoxItem Content="TIFF encoder"/>
-                            </ComboBox>
-                        </wuc:Setting.ActionContent>
-                    </wuc:Setting>
-                    <wuc:Setting Header="JPEG quality level">
-                        <wuc:Setting.ActionContent>
-                            <NumberBox
+                    <wuc:SettingsCard Header="Fallback encoder">
+                        <ComboBox MinWidth="{StaticResource SettingActionControlMinWidth}" SelectedIndex="2">
+                            <ComboBoxItem Content="PNG encoder"/>
+                            <ComboBoxItem Content="BMP encoder"/>
+                            <ComboBoxItem Content="JPEG encoder"/>
+                            <ComboBoxItem Content="TIFF encoder"/>
+                        </ComboBox>
+                    </wuc:SettingsCard>
+                    <wuc:SettingsCard Header="JPEG quality level">
+                        <NumberBox
                                 MinWidth="{StaticResource SettingActionControlMinWidth}"
                                 HorizontalAlignment="Right"
                                 Maximum="100"
                                 Minimum="0"
                                 SpinButtonPlacementMode="Compact"
                                 Value="90"/>
-                        </wuc:Setting.ActionContent>
-                    </wuc:Setting>
+                    </wuc:SettingsCard>
 
-                    <wuc:Setting Header="PNG interlacing">
-                        <wuc:Setting.ActionContent>
-                            <ComboBox MinWidth="{StaticResource SettingActionControlMinWidth}" SelectedIndex="0">
-                                <ComboBoxItem Content="Default"/>
-                                <ComboBoxItem Content="On"/>
-                                <ComboBoxItem Content="Off"/>
-                            </ComboBox>
-                        </wuc:Setting.ActionContent>
-                    </wuc:Setting>
+                    <wuc:SettingsCard Header="PNG interlacing">
+                        <ComboBox MinWidth="{StaticResource SettingActionControlMinWidth}" SelectedIndex="0">
+                            <ComboBoxItem Content="Default"/>
+                            <ComboBoxItem Content="On"/>
+                            <ComboBoxItem Content="Off"/>
+                        </ComboBox>
+                    </wuc:SettingsCard>
 
-                    <wuc:Setting Header="TIFF compression">
-                        <wuc:Setting.ActionContent>
-                            <ComboBox MinWidth="{StaticResource SettingActionControlMinWidth}" SelectedIndex="0">
-                                <ComboBoxItem Content="Default"/>
-                                <ComboBoxItem Content="None"/>
-                                <ComboBoxItem Content="CCITT3"/>
-                                <ComboBoxItem Content="CCITT4"/>
-                                <ComboBoxItem Content="LZW"/>
-                            </ComboBox>
-                        </wuc:Setting.ActionContent>
-                    </wuc:Setting>
+                    <wuc:SettingsCard Header="TIFF compression">
+                        <ComboBox MinWidth="{StaticResource SettingActionControlMinWidth}" SelectedIndex="0">
+                            <ComboBoxItem Content="Default"/>
+                            <ComboBoxItem Content="None"/>
+                            <ComboBoxItem Content="CCITT3"/>
+                            <ComboBoxItem Content="CCITT4"/>
+                            <ComboBoxItem Content="LZW"/>
+                        </ComboBox>
+                    </wuc:SettingsCard>
                 </wuc:SettingsGroup>
                 <wuc:SettingsGroup Header="File">
-                    <wuc:SettingExpander IsExpanded="True">
-                        <wuc:SettingExpander.Header>
-                            <wuc:Setting Header="Filename format" Style="{StaticResource ExpanderHeaderSettingStyle}">
-                                <wuc:Setting.ActionContent>
-                                    <StackPanel Orientation="Horizontal" Spacing="4">
-                                        <TextBox
+                    <wuc:SettingsExpander IsExpanded="True">
+                        <wuc:SettingsExpander.Header>
+                            <wuc:SettingsCard Header="Filename format" Style="{StaticResource ExpanderHeaderSettingStyle}">
+                                <StackPanel Orientation="Horizontal" Spacing="4">
+                                    <TextBox
                                             MinWidth="{StaticResource SettingActionControlMinWidth}"
                                             HorizontalAlignment="Right"
                                             Header="Example: %1 (%2)"/>
-                                        <Button Content="&#xE946;" FontFamily="{ThemeResource SymbolThemeFontFamily}">
-                                            <Button.Flyout>
-                                                <Flyout>
-                                                    <TextBlock x:Name="FileFormatTextBlock">
+                                    <Button Content="&#xE946;" FontFamily="{ThemeResource SymbolThemeFontFamily}">
+                                        <Button.Flyout>
+                                            <Flyout>
+                                                <TextBlock x:Name="FileFormatTextBlock">
                                                         <Run Text="The following parameters can be used:"/>
                                                         <LineBreak/>
                                                         <LineBreak/>
@@ -247,18 +234,17 @@
                                                         <LineBreak/>
                                                         <Run FontWeight="Bold" Text="%3"/>
                                                         <Run Text=" - "/>
-                                                    </TextBlock>
-                                                </Flyout>
-                                            </Button.Flyout>
-                                        </Button>
-                                    </StackPanel>
-                                </wuc:Setting.ActionContent>
-                            </wuc:Setting>
-                        </wuc:SettingExpander.Header>
-                        <wuc:SettingExpander.Content>
+                                                </TextBlock>
+                                            </Flyout>
+                                        </Button.Flyout>
+                                    </Button>
+                                </StackPanel>
+                            </wuc:SettingsCard>
+                        </wuc:SettingsExpander.Header>
+                        <wuc:SettingsExpander.Content>
                             <CheckBox Margin="16,8,0,8" Content="Use original date modified"/>
-                        </wuc:SettingExpander.Content>
-                    </wuc:SettingExpander>
+                        </wuc:SettingsExpander.Content>
+                    </wuc:SettingsExpander>
                 </wuc:SettingsGroup>
             </StackPanel>
         </wuc:SettingsPageControl.ModuleContent>

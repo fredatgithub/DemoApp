@@ -17,24 +17,22 @@
         SecondaryLinksHeader="Attribution">
         <wuc:SettingsPageControl.ModuleContent>
             <StackPanel x:Name="ColorPickerView" Orientation="Vertical" ChildrenTransitions="{StaticResource SettingsCardsAnimations}">
-                <wuc:Setting Header="Enable Color Picker">
-                    <wuc:Setting.Icon>
+                <wuc:SettingsCard Header="Enable Color Picker">
+                    <wuc:SettingsCard.HeaderIcon>
                         <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/FluentIcons/FluentIconsColorPicker.png"/>
-                    </wuc:Setting.Icon>
-                    <wuc:Setting.ActionContent>
-                        <ToggleSwitch/>
-                    </wuc:Setting.ActionContent>
-                </wuc:Setting>
+                    </wuc:SettingsCard.HeaderIcon>
+                    <ToggleSwitch/>
+                </wuc:SettingsCard>
 
                 <wuc:SettingsGroup Header="Shortcut">
-                    <wuc:SettingExpander IsExpanded="True">
-                        <wuc:SettingExpander.Header>
-                            <wuc:Setting
+                    <wuc:SettingsExpander IsExpanded="True">
+                        <wuc:SettingsExpander.Header>
+                            <wuc:SettingsCard
                                 Header="Activation behavior"
-                                Icon="&#xEC4E;"
+                                HeaderIcon="&#xEC4E;"
                                 Style="{StaticResource ExpanderHeaderSettingStyle}"/>
-                        </wuc:SettingExpander.Header>
-                        <wuc:SettingExpander.Content>
+                        </wuc:SettingsExpander.Header>
+                        <wuc:SettingsExpander.Content>
                             <StackPanel Padding="56,16,16,24" Spacing="12">
                                 <RadioButton GroupName="ColorPickerActivationAction">
                                     <RadioButton.Content>
@@ -54,36 +52,32 @@
                                     </RadioButton.Content>
                                 </RadioButton>
                             </StackPanel>
-                        </wuc:SettingExpander.Content>
-                    </wuc:SettingExpander>
+                        </wuc:SettingsExpander.Content>
+                    </wuc:SettingsExpander>
                 </wuc:SettingsGroup>
 
                 <wuc:SettingsGroup Header="Picker behavior">
-                    <wuc:Setting
+                    <wuc:SettingsCard
                         Description="This format will be copied to your clipboard"
                         Header="Default color format"
-                        Icon="&#xEF3C;">
-                        <wuc:Setting.ActionContent>
-                            <ComboBox
+                        HeaderIcon="&#xEF3C;">
+                        <ComboBox
                                 MinWidth="{StaticResource SettingActionControlMinWidth}"
                                 HorizontalAlignment="Left"
                                 DisplayMemberPath="Value"/>
-                        </wuc:Setting.ActionContent>
-                    </wuc:Setting>
+                    </wuc:SettingsCard>
 
-                    <wuc:Setting Description="This will show the name of the color when picking a color" Header="Show color name">
-                        <wuc:Setting.ActionContent>
-                            <ToggleSwitch/>
-                        </wuc:Setting.ActionContent>
-                    </wuc:Setting>
+                    <wuc:SettingsCard Description="This will show the name of the color when picking a color" Header="Show color name">
+                        <ToggleSwitch/>
+                    </wuc:SettingsCard>
                 </wuc:SettingsGroup>
 
                 <wuc:SettingsGroup Header="Editor">
-                    <wuc:Setting
+                    <wuc:SettingsCard
                         x:Name="ColorFormatsSetting"
                         Description="Select which color formats (and in what order) should show up in the editor"
                         Header="Color formats"
-                        Icon="&#xE14C;"/>
+                        HeaderIcon="&#xE14C;"/>
                     <ListView
                         HorizontalAlignment="Stretch"
                         AutomationProperties.Name="{Binding ElementName=ColorFormatsSetting, Path=Header}"

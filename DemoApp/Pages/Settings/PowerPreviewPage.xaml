@@ -27,36 +27,25 @@
                     Severity="Informational"/>
 
                 <wuc:SettingsGroup Header="Preview Pane">
-                    <wuc:Setting Header="Enable SVG (.svg) preview" Icon="&#xE91B;">
-                        <wuc:Setting.ActionContent>
-                            <ToggleSwitch/>
-                        </wuc:Setting.ActionContent>
-                    </wuc:Setting>
-
-                    <wuc:Setting Header="Enable Markdown (.md) preview" Icon="&#xE943;">
-                        <wuc:Setting.ActionContent>
-                            <ToggleSwitch/>
-                        </wuc:Setting.ActionContent>
-                    </wuc:Setting>
-
-                    <wuc:Setting Header="Enable PDF (.pdf) preview" Icon="&#xEA90;">
-                        <wuc:Setting.ActionContent>
-                            <ToggleSwitch/>
-                        </wuc:Setting.ActionContent>
-                    </wuc:Setting>
+                    <wuc:SettingsCard Header="Enable SVG (.svg) preview" HeaderIcon="&#xE91B;">
+                        <ToggleSwitch/>
+                    </wuc:SettingsCard>
+                    <wuc:SettingsCard Header="Enable Markdown (.md) preview" HeaderIcon="&#xE943;">
+                        <ToggleSwitch/>
+                    </wuc:SettingsCard>
+                        <wuc:SettingsCard Header="Enable PDF (.pdf) preview" HeaderIcon="&#xEA90;">
+                        <ToggleSwitch/>
+                    </wuc:SettingsCard>
                 </wuc:SettingsGroup>
-
                 <wuc:SettingsGroup Header="Icon Preview">
                     <InfoBar
                         Title="A reboot may be required for changes to these settings to take effect"
                         IsClosable="False"
                         IsOpen="True"
                         Severity="Informational"/>
-                    <wuc:Setting Header="Enable SVG (.svg) thumbnails" Icon="&#xE91B;">
-                        <wuc:Setting.ActionContent>
-                            <ToggleSwitch/>
-                        </wuc:Setting.ActionContent>
-                    </wuc:Setting>
+                    <wuc:SettingsCard Header="Enable SVG (.svg) thumbnails" HeaderIcon="&#xE91B;">
+                        <ToggleSwitch/>
+                    </wuc:SettingsCard>
                 </wuc:SettingsGroup>
             </StackPanel>
         </wuc:SettingsPageControl.ModuleContent>

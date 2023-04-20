@@ -13,14 +13,12 @@
         ModuleTitle="Shortcut Guide">
         <wuc:SettingsPageControl.ModuleContent>
             <StackPanel Orientation="Vertical" ChildrenTransitions="{StaticResource SettingsCardsAnimations}">
-                <wuc:Setting Header="Enable Shortcut Guide">
-                    <wuc:Setting.Icon>
+                <wuc:SettingsCard Header="Enable Shortcut Guide">
+                    <wuc:SettingsCard.HeaderIcon>
                         <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/FluentIcons/FluentIconsShortcutGuide.png"/>
-                    </wuc:Setting.Icon>
-                    <wuc:Setting.ActionContent>
-                        <ToggleSwitch/>
-                    </wuc:Setting.ActionContent>
-                </wuc:Setting>
+                    </wuc:SettingsCard.HeaderIcon>
+                    <ToggleSwitch/>
+                </wuc:SettingsCard>
 
                 <wuc:KeyVisual IsTabStop="False"
                                             AutomationProperties.AccessibilityView="Raw"
@@ -34,38 +32,34 @@
                 <Button Content="Open Shortcut Dialog" Click="Button_Click"/>
                 <wuc:SettingsGroup Header="Appearance &amp; behavior">
 
-                    <wuc:Setting Header="Choose a mode" Icon="&#xE771;">
-                        <wuc:Setting.Description>
+                    <wuc:SettingsCard Header="Choose a mode" HeaderIcon="&#xE771;">
+                        <wuc:SettingsCard.Description>
                             <HyperlinkButton Content="Windows color settings"/>
-                        </wuc:Setting.Description>
-                        <wuc:Setting.ActionContent>
-                            <ComboBox MinWidth="{StaticResource SettingActionControlMinWidth}" SelectedIndex="0">
-                                <ComboBoxItem Content="Dark"/>
-                                <ComboBoxItem Content="Light"/>
-                                <ComboBoxItem Content="Default"/>
-                            </ComboBox>
-                        </wuc:Setting.ActionContent>
-                    </wuc:Setting>
+                        </wuc:SettingsCard.Description>
+                        <ComboBox MinWidth="{StaticResource SettingActionControlMinWidth}" SelectedIndex="0">
+                            <ComboBoxItem Content="Dark"/>
+                            <ComboBoxItem Content="Light"/>
+                            <ComboBoxItem Content="Default"/>
+                        </ComboBox>
+                    </wuc:SettingsCard>
 
-                    <wuc:Setting Header="Opacity of background">
-                        <wuc:Setting.ActionContent>
-                            <Slider
+                    <wuc:SettingsCard Header="Opacity of background">
+                        <Slider
                                 MinWidth="{StaticResource SettingActionControlMinWidth}"
                                 Maximum="100"
                                 Minimum="0"/>
-                        </wuc:Setting.ActionContent>
-                    </wuc:Setting>
+                    </wuc:SettingsCard>
                 </wuc:SettingsGroup>
                 <wuc:SettingsGroup Header="Excluded apps">
-                    <wuc:SettingExpander IsExpanded="True">
-                        <wuc:SettingExpander.Header>
-                            <wuc:Setting
+                    <wuc:SettingsExpander IsExpanded="True">
+                        <wuc:SettingsExpander.Header>
+                            <wuc:SettingsCard
                                 Description="Turns off Shortcut Guide when these applications have focus - add one application name per line"
                                 Header="Exclude apps"
-                                Icon="&#xE103;"
+                                HeaderIcon="&#xE103;"
                                 Style="{StaticResource ExpanderHeaderSettingStyle}"/>
-                        </wuc:SettingExpander.Header>
-                        <wuc:SettingExpander.Content>
+                        </wuc:SettingsExpander.Header>
+                        <wuc:SettingsExpander.Content>
                             <TextBox
                                 MinWidth="240"
                                 MinHeight="160"
@@ -76,8 +70,8 @@
                                 ScrollViewer.VerticalScrollBarVisibility="Visible"
                                 ScrollViewer.VerticalScrollMode="Enabled"
                                 TextWrapping="Wrap"/>
-                        </wuc:SettingExpander.Content>
-                    </wuc:SettingExpander>
+                        </wuc:SettingsExpander.Content>
+                    </wuc:SettingsExpander>
                 </wuc:SettingsGroup>
             </StackPanel>
         </wuc:SettingsPageControl.ModuleContent>

@@ -15,29 +15,25 @@
         SecondaryLinksHeader="Attribution">
         <wuc:SettingsPageControl.ModuleContent>
             <StackPanel Orientation="Vertical" ChildrenTransitions="{StaticResource SettingsCardsAnimations}">
-                <wuc:Setting Header="Enable Awake">
-                    <wuc:Setting.Icon>
+                <wuc:SettingsCard Header="Enable Awake">
+                    <wuc:SettingsCard.HeaderIcon>
                         <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/FluentIcons/FluentIconsAwake.png"/>
-                    </wuc:Setting.Icon>
-                    <wuc:Setting.ActionContent>
-                        <ToggleSwitch HorizontalAlignment="Right"/>
-                    </wuc:Setting.ActionContent>
-                </wuc:Setting>
+                    </wuc:SettingsCard.HeaderIcon>
+                    <ToggleSwitch HorizontalAlignment="Right"/>
+                </wuc:SettingsCard>
 
                 <wuc:SettingsGroup Header="Behavior">
-                    <wuc:Setting Header="Keep screen on" Icon="&#xE7FB;">
-                        <wuc:Setting.ActionContent>
-                            <ToggleSwitch/>
-                        </wuc:Setting.ActionContent>
-                    </wuc:Setting>
-                    <wuc:SettingExpander IsEnabled="False" IsExpanded="True">
-                        <wuc:SettingExpander.Header>
-                            <wuc:Setting
+                    <wuc:SettingsCard Header="Keep screen on" HeaderIcon="&#xE7FB;">
+                        <ToggleSwitch/>
+                    </wuc:SettingsCard>
+                    <wuc:SettingsExpander IsEnabled="False" IsExpanded="True">
+                        <wuc:SettingsExpander.Header>
+                            <wuc:SettingsCard
                                 Header="Mode"
-                                Icon="&#xEC4E;"
+                                HeaderIcon="&#xEC4E;"
                                 Style="{StaticResource ExpanderHeaderSettingStyle}"/>
-                        </wuc:SettingExpander.Header>
-                        <wuc:SettingExpander.Content>
+                        </wuc:SettingsExpander.Header>
+                        <wuc:SettingsExpander.Content>
                             <StackPanel Padding="56,16,16,24" Spacing="12">
                                 <RadioButton>
                                     <RadioButton.Content>
@@ -91,8 +87,8 @@
                                     </StackPanel>
                                 </StackPanel>
                             </StackPanel>
-                        </wuc:SettingExpander.Content>
-                    </wuc:SettingExpander>
+                        </wuc:SettingsExpander.Content>
+                    </wuc:SettingsExpander>
                 </wuc:SettingsGroup>
             </StackPanel>
         </wuc:SettingsPageControl.ModuleContent>

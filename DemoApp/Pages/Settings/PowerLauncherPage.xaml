@@ -16,92 +16,83 @@ xmlns:wuc="using:WinUICommunity"
         SecondaryLinksHeader="Attribution">
         <wuc:SettingsPageControl.ModuleContent>
             <StackPanel Orientation="Vertical" ChildrenTransitions="{StaticResource SettingsCardsAnimations}">
-                <wuc:Setting Header="Enable PowerToys Run">
-                    <wuc:Setting.Icon>
+                <wuc:SettingsCard Header="Enable PowerToys Run">
+                    <wuc:SettingsCard.HeaderIcon>
                         <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/FluentIcons/FluentIconsPowerToysRun.png"/>
-                    </wuc:Setting.Icon>
-                    <wuc:Setting.ActionContent>
-                        <ToggleSwitch/>
-                    </wuc:Setting.ActionContent>
-                </wuc:Setting>
+                    </wuc:SettingsCard.HeaderIcon>
+                    <ToggleSwitch/>
+
+                </wuc:SettingsCard>
                 <wuc:SettingsGroup Header="Shortcut">
-                    <wuc:SettingExpander IsExpanded="True">
-                        <wuc:SettingExpander.Header>
-                            <wuc:Setting
+                    <wuc:SettingsExpander IsExpanded="True">
+                        <wuc:SettingsExpander.Header>
+                            <wuc:SettingsCard
                                 Description="Customize the keyboard shortcut to activate this module"
                                 Header="Activation shortcut"
-                                Icon="&#xEDA7;"
+                                HeaderIcon="&#xEDA7;"
                                 Style="{StaticResource ExpanderHeaderSettingStyle}"/>
-                        </wuc:SettingExpander.Header>
-                        <wuc:SettingExpander.Content>
+                        </wuc:SettingsExpander.Header>
+                        <wuc:SettingsExpander.Content>
                             <StackPanel>
                                 <CheckBox Margin="{StaticResource ExpanderSettingMargin}" Content="Ignore shortcuts in fullscreen mode"/>
                             </StackPanel>
-                        </wuc:SettingExpander.Content>
-                    </wuc:SettingExpander>
+                        </wuc:SettingsExpander.Content>
+                    </wuc:SettingsExpander>
                 </wuc:SettingsGroup>
 
                 <wuc:SettingsGroup Header="Search &amp; results">
-                    <wuc:SettingExpander IsExpanded="True">
-                        <wuc:SettingExpander.Header>
-                            <wuc:Setting
+                    <wuc:SettingsExpander IsExpanded="True">
+                        <wuc:SettingsExpander.Header>
+                            <wuc:SettingsCard
                                 Header="Maximum number of results"
-                                Icon="&#xE721;"
+                                HeaderIcon="&#xE721;"
                                 Style="{StaticResource ExpanderHeaderSettingStyle}">
-                                <wuc:Setting.ActionContent>
-                                    <NumberBox
+                                <NumberBox
                                         MinWidth="{StaticResource SettingActionControlMinWidth}"
                                         Minimum="1"
                                         SpinButtonPlacementMode="Compact"
                                         Value="4"/>
-                                </wuc:Setting.ActionContent>
-                            </wuc:Setting>
-                        </wuc:SettingExpander.Header>
-                        <wuc:SettingExpander.Content>
+                            </wuc:SettingsCard>
+                        </wuc:SettingsExpander.Header>
+                        <wuc:SettingsExpander.Content>
                             <CheckBox Margin="{StaticResource ExpanderSettingMargin}" Content="Clear the previous query on launch"/>
-                        </wuc:SettingExpander.Content>
-                    </wuc:SettingExpander>
+                        </wuc:SettingsExpander.Content>
+                    </wuc:SettingsExpander>
                 </wuc:SettingsGroup>
 
                 <wuc:SettingsGroup Header="Position &amp; appearance">
-                    <wuc:Setting
+                    <wuc:SettingsCard
                         Description="If multiple monitors are in use, PowerToys Run can be launched on the desired monitor"
                         Header="Preferred monitor position"
-                        Icon="&#xE18C;">
-                        <wuc:Setting.ActionContent>
-                            <ComboBox MinWidth="{StaticResource SettingActionControlMinWidth}" SelectedIndex="0">
-                                <ComboBoxItem Content="Monitor with mouse cursor"/>
-                                <ComboBoxItem Content="Primary monitor"/>
-                                <ComboBoxItem Content="Monitor with focused window"/>
-                            </ComboBox>
-                        </wuc:Setting.ActionContent>
-                    </wuc:Setting>
+                        HeaderIcon="&#xE18C;">
+                        <ComboBox MinWidth="{StaticResource SettingActionControlMinWidth}" SelectedIndex="0">
+                            <ComboBoxItem Content="Monitor with mouse cursor"/>
+                            <ComboBoxItem Content="Primary monitor"/>
+                            <ComboBoxItem Content="Monitor with focused window"/>
+                        </ComboBox>
+                    </wuc:SettingsCard>
 
-                    <wuc:Setting Header="Choose a mode" Icon="&#xE771;">
-                        <wuc:Setting.Description>
+                    <wuc:SettingsCard Header="Choose a mode" HeaderIcon="&#xE771;">
+                        <wuc:SettingsCard.Description>
                             <HyperlinkButton Content="Windows color settings"/>
-                        </wuc:Setting.Description>
-                        <wuc:Setting.ActionContent>
-                            <ComboBox MinWidth="{StaticResource SettingActionControlMinWidth}" SelectedIndex="0">
-                                <ComboBoxItem Content="Dark"/>
-                                <ComboBoxItem Content="Light"/>
-                                <ComboBoxItem Content="Default"/>
-                            </ComboBox>
-                        </wuc:Setting.ActionContent>
-                    </wuc:Setting>
+                        </wuc:SettingsCard.Description>
+                        <ComboBox MinWidth="{StaticResource SettingActionControlMinWidth}" SelectedIndex="0">
+                            <ComboBoxItem Content="Dark"/>
+                            <ComboBoxItem Content="Light"/>
+                            <ComboBoxItem Content="Default"/>
+                        </ComboBox>
+                        </wuc:SettingsCard>
                 </wuc:SettingsGroup>
                 <wuc:SettingsGroup Header="Plugins">
-                    <wuc:Setting
+                    <wuc:SettingsCard
                         Description="You can include or remove each plugin from the global results, change the direct activation phrase and configure additional options"
                         Header="Plugins"
-                        Icon="&#xEA86;">
-                        <wuc:Setting.ActionContent>
-                            <AutoSuggestBox
+                        HeaderIcon="&#xEA86;">
+                        <AutoSuggestBox
                                 MinWidth="{StaticResource SettingActionControlMinWidth}"
                                 PlaceholderText="Search this list"
                                 QueryIcon="Find"/>
-                        </wuc:Setting.ActionContent>
-                    </wuc:Setting>
+                    </wuc:SettingsCard>
                     <InfoBar
                         Title="PowerToys Run can't provide any results without plugins"
                         IsClosable="False"

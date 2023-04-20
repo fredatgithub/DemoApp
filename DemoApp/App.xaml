@@ -11,6 +11,18 @@
                 <ResourceDictionary Source="ms-appx:///LandingsPage/Themes/Generic.xaml"/>
                 <wuc:ItemTemplates/>
             </ResourceDictionary.MergedDictionaries>
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key="Light">
+                    <SolidColorBrush x:Key="NavigationViewExpandedPaneBackground" Color="Transparent" />
+                </ResourceDictionary>
+                <ResourceDictionary x:Key="Dark">
+                    <SolidColorBrush x:Key="NavigationViewExpandedPaneBackground" Color="Transparent" />
+                </ResourceDictionary>
+                <ResourceDictionary x:Key="HighContrast">
+                    <SolidColorBrush x:Key="NavigationViewExpandedPaneBackground" Color="Transparent" />
+                </ResourceDictionary>
+            </ResourceDictionary.ThemeDictionaries>
+            <Thickness x:Key="NavigationViewContentMargin">0,48,0,0</Thickness>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

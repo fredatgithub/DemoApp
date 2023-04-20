@@ -20,7 +20,7 @@ namespace WinUICommunity.DemoApp.Pages
             var args = (ItemClickEventArgs)e;
             var item = (ControlInfoDataItem)args.ClickedItem;
 
-            ShellPage.Instance.Navigate(item.UniqueId);
+            MainWindow.Instance.Navigate(item.UniqueId);
         }
     }
 }

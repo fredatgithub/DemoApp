@@ -10,7 +10,7 @@
     <wuc:MainLandingsPage x:Name="mainLandingsPage" Loaded="mainLandingsPage_Loaded"
                             HeaderImage="ms-appx:///Assets/GalleryHeaderImage.png"
                             HeaderText="Demo App"
-                            HeaderSubtitleText="Based On WinAppSDK 1.2"
+                            HeaderSubtitleText="Based On WinAppSDK 1.3"
                             OnItemClick="mainLandingsPage_OnItemClick">
         <wuc:MainLandingsPage.HeaderContent>
             <StackPanel Orientation="Horizontal" Spacing="10">

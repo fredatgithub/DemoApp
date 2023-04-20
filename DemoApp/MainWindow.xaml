@@ -5,96 +5,342 @@
     xmlns:local="using:WinUICommunity.DemoApp"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:wuc="using:WinUICommunity"
+    xmlns:views="using:WinUICommunity.DemoApp.Pages"
     mc:Ignorable="d">
     <Grid Name="Root">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition />
-        </Grid.RowDefinitions>
-        <Grid x:Name="AppTitleBar" Height="48">
+        <Grid x:Name="AppTitleBar" VerticalAlignment="Top" IsHitTestVisible="True" Canvas.ZIndex="1" Height="{Binding ElementName=navigationView, Path=CompactPaneLength}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition x:Name="LeftPaddingColumn" Width="0"/>
-                <ColumnDefinition x:Name="IconColumn" Width="Auto"/>
+                <ColumnDefinition x:Name="IconColumn" Width="0"/>
                 <ColumnDefinition x:Name="TitleColumn" Width="Auto"/>
                 <ColumnDefinition x:Name="LeftDragColumn" Width="*"/>
                 <ColumnDefinition x:Name="SearchColumn" Width="Auto"/>
                 <ColumnDefinition x:Name="RightDragColumn" Width="*"/>
                 <ColumnDefinition x:Name="RightPaddingColumn" Width="0"/>
             </Grid.ColumnDefinitions>
-            <Image x:Name="TitleBarIcon" Source="/Assets/logo.png"
-           Grid.Column="1"
-           Width="16" Height="16"
-           Margin="8,0,0,0"/>
-            <TextBlock x:Name="TitleTextBlock" 
-               Text="SettingsUI Demo" 
-               Style="{StaticResource CaptionTextBlockStyle}"
-               Grid.Column="2"
-               VerticalAlignment="Center"
-               Margin="4,0,0,0"/>
+            
+            <StackPanel Orientation="Horizontal"
+                           VerticalAlignment="Center"
+                           Margin="48,0,0,0" Spacing="5">
+                <Image x:Name="TitleBarIcon" 
+                   Source="/Assets/logo.png" 
+                   Width="16" 
+                   Height="16"/>
+                <TextBlock x:Name="TitleTextBlock" 
+                           Text="SettingsUI Demo" 
+                           VerticalAlignment="Center"
+                           Style="{StaticResource CaptionTextBlockStyle}"/>
+                <MenuBar>
+                    <MenuBarItem Title="File">
+                        <MenuFlyoutItem Text="New">
+                            <MenuFlyoutItem.KeyboardAccelerators>
+                                <KeyboardAccelerator Modifiers="Control" Key="N"/>
+                            </MenuFlyoutItem.KeyboardAccelerators>
+                        </MenuFlyoutItem>
+                        <MenuFlyoutItem Text="Open...">
+                            <MenuFlyoutItem.KeyboardAccelerators>
+                                <KeyboardAccelerator Modifiers="Control" Key="O"/>
+                            </MenuFlyoutItem.KeyboardAccelerators>
+                        </MenuFlyoutItem>
+                        <MenuFlyoutItem Text="Save">
+                            <MenuFlyoutItem.KeyboardAccelerators>
+                                <KeyboardAccelerator Modifiers="Control" Key="S"/>
+                            </MenuFlyoutItem.KeyboardAccelerators>
+                        </MenuFlyoutItem>
+                        <MenuFlyoutItem Text="Exit">
+                            <MenuFlyoutItem.KeyboardAccelerators>
+                                <KeyboardAccelerator Modifiers="Control" Key="E"/>
+                            </MenuFlyoutItem.KeyboardAccelerators>
+                        </MenuFlyoutItem>
+                    </MenuBarItem>
+
+                    <MenuBarItem Title="Edit">
+                        <MenuFlyoutItem Text="Undo">
+                            <MenuFlyoutItem.KeyboardAccelerators>
+                                <KeyboardAccelerator Modifiers="Control" Key="Z"/>
+                            </MenuFlyoutItem.KeyboardAccelerators>
+                        </MenuFlyoutItem>
+                        <MenuFlyoutItem Text="Cut">
+                            <MenuFlyoutItem.KeyboardAccelerators>
+                                <KeyboardAccelerator Modifiers="Control" Key="X"/>
+                            </MenuFlyoutItem.KeyboardAccelerators>
+                        </MenuFlyoutItem>
+                        <MenuFlyoutItem Text="Copy">
+                            <MenuFlyoutItem.KeyboardAccelerators>
+                                <KeyboardAccelerator Modifiers="Control" Key="C"/>
+                            </MenuFlyoutItem.KeyboardAccelerators>
+                        </MenuFlyoutItem>
+                        <MenuFlyoutItem Text="Paste">
+                            <MenuFlyoutItem.KeyboardAccelerators>
+                                <KeyboardAccelerator Modifiers="Control" Key="V"/>
+                            </MenuFlyoutItem.KeyboardAccelerators>
+                        </MenuFlyoutItem>
+                    </MenuBarItem>
+
+                    <MenuBarItem Title="Help">
+                        <MenuFlyoutItem Text="About">
+                            <MenuFlyoutItem.KeyboardAccelerators>
+                                <KeyboardAccelerator Modifiers="Control" Key="I"/>
+                            </MenuFlyoutItem.KeyboardAccelerators>
+                        </MenuFlyoutItem>
+                    </MenuBarItem>
+                </MenuBar>
+            </StackPanel>
+            
             <AutoSuggestBox Grid.Column="4" QueryIcon="Find"
                     PlaceholderText="Search"
                     BorderThickness="0"
                     VerticalAlignment="Center"
                     Width="260" Margin="4,0"/>
         </Grid>
-        <MenuBar Grid.Row="1">
-            <MenuBarItem Title="File">
-                <MenuFlyoutItem Text="New">
-                    <MenuFlyoutItem.KeyboardAccelerators>
-                        <KeyboardAccelerator Modifiers="Control" Key="N"/>
-                    </MenuFlyoutItem.KeyboardAccelerators>
-                </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Open...">
-                    <MenuFlyoutItem.KeyboardAccelerators>
-                        <KeyboardAccelerator Modifiers="Control" Key="O"/>
-                    </MenuFlyoutItem.KeyboardAccelerators>
-                </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Save">
-                    <MenuFlyoutItem.KeyboardAccelerators>
-                        <KeyboardAccelerator Modifiers="Control" Key="S"/>
-                    </MenuFlyoutItem.KeyboardAccelerators>
-                </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Exit">
-                    <MenuFlyoutItem.KeyboardAccelerators>
-                        <KeyboardAccelerator Modifiers="Control" Key="E"/>
-                    </MenuFlyoutItem.KeyboardAccelerators>
-                </MenuFlyoutItem>
-            </MenuBarItem>
 
-            <MenuBarItem Title="Edit">
-                <MenuFlyoutItem Text="Undo">
-                    <MenuFlyoutItem.KeyboardAccelerators>
-                        <KeyboardAccelerator Modifiers="Control" Key="Z"/>
-                    </MenuFlyoutItem.KeyboardAccelerators>
-                </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Cut">
-                    <MenuFlyoutItem.KeyboardAccelerators>
-                        <KeyboardAccelerator Modifiers="Control" Key="X"/>
-                    </MenuFlyoutItem.KeyboardAccelerators>
-                </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Copy">
-                    <MenuFlyoutItem.KeyboardAccelerators>
-                        <KeyboardAccelerator Modifiers="Control" Key="C"/>
-                    </MenuFlyoutItem.KeyboardAccelerators>
-                </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Paste">
-                    <MenuFlyoutItem.KeyboardAccelerators>
-                        <KeyboardAccelerator Modifiers="Control" Key="V"/>
-                    </MenuFlyoutItem.KeyboardAccelerators>
-                </MenuFlyoutItem>
-            </MenuBarItem>
+        <NavigationView
+            x:Name="navigationView"
+            IsSettingsVisible="True"
+            Canvas.ZIndex="0"
+            IsTabStop="False"
+            IsTitleBarAutoPaddingEnabled="True"
+            OpenPaneLength="288">
+            <!--<NavigationView.Resources>
+                <SolidColorBrush x:Key="NavigationViewContentBackground" Color="Transparent"/>
+                <SolidColorBrush x:Key="NavigationViewContentGridBorderBrush" Color="Transparent"/>
+            </NavigationView.Resources>-->
 
-            <MenuBarItem Title="Help">
-                <MenuFlyoutItem Text="About">
-                    <MenuFlyoutItem.KeyboardAccelerators>
-                        <KeyboardAccelerator Modifiers="Control" Key="I"/>
-                    </MenuFlyoutItem.KeyboardAccelerators>
-                </MenuFlyoutItem>
-            </MenuBarItem>
-        </MenuBar>
+            <NavigationView.AutoSuggestBox>
+                <AutoSuggestBox Name="autoSuggestBox" QueryIcon="Find" PlaceholderText="Search"/>
+            </NavigationView.AutoSuggestBox>
+            <NavigationView.MenuItems>
+                <NavigationViewItem
+                    Margin="0,0,12,0"
+                    Content="LandingsPage">
+                    <NavigationViewItem.Icon>
+                        <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/FluentIcons/FluentIconsSettings.png"/>
+                    </NavigationViewItem.Icon>
+                    <NavigationViewItem.MenuItems>
+                        <NavigationViewItem 
+                            Margin="0,0,12,0" 
+                            wuc:NavHelper.NavigateTo="views:AllLandingsPage"
+                            Content="AllLandingsPage">
+                            <NavigationViewItem.Icon>
+                                <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/FluentIcons/FluentIconsSettings.png"/>
+                            </NavigationViewItem.Icon>
+                        </NavigationViewItem>
+                        <NavigationViewItem 
+                            Margin="0,0,12,0" 
+                            wuc:NavHelper.NavigateTo="views:HomeLandingsPage"
+                            Content="MainLandingsPage">
+                            <NavigationViewItem.Icon>
+                                <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/FluentIcons/FluentIconsSettings.png"/>
+                            </NavigationViewItem.Icon>
+                        </NavigationViewItem>
+                    </NavigationViewItem.MenuItems>
+                </NavigationViewItem>
+                <NavigationViewItem
+                    Margin="0,0,12,0"
+                    wuc:NavHelper.NavigateTo="views:ThemeManagerPage"
+                    Content="ThemeManager">
+                    <NavigationViewItem.Icon>
+                        <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/FluentIcons/FluentIconsColorPicker.png"/>
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem
+                    Margin="0,0,12,0"
+                    wuc:NavHelper.NavigateTo="views:NavigationManagerPage"
+                    Content="NavigationManager">
+                    <NavigationViewItem.Icon>
+                        <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/FluentIcons/FluentIconsColorPicker.png"/>
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem
+                    Margin="0,0,12,0"
+                    wuc:NavHelper.NavigateTo="views:SettingsControls"
+                    Content="SettingsControls">
+                    <NavigationViewItem.Icon>
+                        <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/FluentIcons/FluentIconsSettings.png"/>
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem
+                    Margin="0,0,12,0"
+                    wuc:NavHelper.NavigateTo="views:DynamicLanguagePage"
+                    Content="DynamicLanguage">
+                    <NavigationViewItem.Icon>
+                        <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/FluentIcons/FluentIconsSettings.png"/>
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem
+                    Margin="0,0,12,0"
+                    wuc:NavHelper.NavigateTo="views:PrintPage"
+                    Content="PrintHelper">
+                    <NavigationViewItem.Icon>
+                        <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/FluentIcons/FluentIconsSettings.png"/>
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem
+                    Margin="0,0,12,0"
+                    wuc:NavHelper.NavigateTo="views:AppNotificationPage"
+                    Content="AppNotification">
+                    <NavigationViewItem.Icon>
+                        <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/FluentIcons/FluentIconsSettings.png"/>
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem
+                    Margin="0,0,12,0"
+                    wuc:NavHelper.NavigateTo="views:ContentDialogPage"
+                    Content="ContentDialog">
+                    <NavigationViewItem.Icon>
+                        <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/FluentIcons/FluentIconsSettings.png"/>
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem
+                    Margin="0,0,12,0"
+                    wuc:NavHelper.NavigateTo="views:CommandObservablePage"
+                    Content="RelayCommand and Observable">
+                    <NavigationViewItem.Icon>
+                        <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/FluentIcons/FluentIconsFancyZones.png"/>
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem
+                    Margin="0,0,12,0"
+                    wuc:NavHelper.NavigateTo="views:CheckUpdatePage"
+                    Content="Check Update">
+                    <NavigationViewItem.Icon>
+                        <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/FluentIcons/FluentIconsPowerToys.png"/>
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem
+                    Margin="0,0,12,0"
+                    wuc:NavHelper.NavigateTo="views:PresenterPage"
+                    Content="AppWindow Presenter">
+                    <NavigationViewItem.Icon>
+                        <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/FluentIcons/FluentIconsImageResizer.png"/>
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem
+                    Margin="0,0,12,0"
+                    wuc:NavHelper.NavigateTo="views:InlineAutoCompleteTextBoxPage"
+                    Content="Inline AutoComplete TextBox">
+                    <NavigationViewItem.Icon>
+                        <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/FluentIcons/FluentIconsPowerRename.png"/>
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem
+                    Margin="0,0,12,0"
+                    Content="Settings">
+                    <NavigationViewItem.Icon>
+                        <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/FluentIcons/FluentIconsSettings.png"/>
+                    </NavigationViewItem.Icon>
+                    <NavigationViewItem.MenuItems>
+                        <NavigationViewItem
+                            Margin="0,0,12,0"
+                            wuc:NavHelper.NavigateTo="views:GeneralPage"
+                            Content="General">
+                            <NavigationViewItem.Icon>
+                                <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/FluentIcons/FluentIconsSettings.png"/>
+                            </NavigationViewItem.Icon>
+                        </NavigationViewItem>
 
-        <local:ShellPage Grid.Row="2"/>
+                        <NavigationViewItem
+                            Margin="0,0,12,0"
+                            wuc:NavHelper.NavigateTo="views:OobePage"
+                            Content="FileExplorer Preview">
+                            <NavigationViewItem.Icon>
+                                <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/FluentIcons/FluentIconsFileExplorerPreview.png"/>
+                            </NavigationViewItem.Icon>
+                        </NavigationViewItem>
 
+                        <NavigationViewItem
+                            Margin="0,0,12,0"
+                            wuc:NavHelper.NavigateTo="views:AwakePage"
+                            Content="Awake">
+                            <NavigationViewItem.Icon>
+                                <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/FluentIcons/FluentIconsAwake.png"/>
+                            </NavigationViewItem.Icon>
+                        </NavigationViewItem>
+
+                        <NavigationViewItem
+                            Margin="0,0,12,0"
+                            wuc:NavHelper.NavigateTo="views:ColorPickerPage"
+                            Content="Color Picker">
+                            <NavigationViewItem.Icon>
+                                <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/FluentIcons/FluentIconsColorPicker.png"/>
+                            </NavigationViewItem.Icon>
+                        </NavigationViewItem>
+
+                        <NavigationViewItem
+                            Margin="0,0,12,0"
+                            wuc:NavHelper.NavigateTo="views:FancyZonesPage"
+                            Content="FancyZones">
+                            <NavigationViewItem.Icon>
+                                <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/FluentIcons/FluentIconsFancyZones.png"/>
+                            </NavigationViewItem.Icon>
+                        </NavigationViewItem>
+
+                        <NavigationViewItem
+                            Margin="0,0,12,0"
+                            wuc:NavHelper.NavigateTo="views:PowerPreviewPage"
+                            Content="File Explorer add-ons">
+                            <NavigationViewItem.Icon>
+                                <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/FluentIcons/FluentIconsFileExplorerPreview.png"/>
+                            </NavigationViewItem.Icon>
+                        </NavigationViewItem>
+
+                        <NavigationViewItem
+                            Margin="0,0,12,0"
+                            wuc:NavHelper.NavigateTo="views:ImageResizerPage"
+                            Content="Image Resizer">
+                            <NavigationViewItem.Icon>
+                                <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/FluentIcons/FluentIconsImageResizer.png"/>
+                            </NavigationViewItem.Icon>
+                        </NavigationViewItem>
+
+                        <NavigationViewItem
+                            Margin="0,0,12,0"
+                            wuc:NavHelper.NavigateTo="views:KeyboardManagerPage"
+                            Content="Keyboard Manager">
+                            <NavigationViewItem.Icon>
+                                <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/FluentIcons/FluentIconsKeyboardManager.png"/>
+                            </NavigationViewItem.Icon>
+                        </NavigationViewItem>
+
+                        <NavigationViewItem
+                            Margin="0,0,12,0"
+                            wuc:NavHelper.NavigateTo="views:PowerRenamePage"
+                            Content="PowerRename">
+                            <NavigationViewItem.Icon>
+                                <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/FluentIcons/FluentIconsPowerRename.png"/>
+                            </NavigationViewItem.Icon>
+                        </NavigationViewItem>
+
+                        <NavigationViewItem
+                            Margin="0,0,12,0"
+                            wuc:NavHelper.NavigateTo="views:PowerLauncherPage"
+                            Content="PowerToys Run">
+                            <NavigationViewItem.Icon>
+                                <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/FluentIcons/FluentIconsPowerToysRun.png"/>
+                            </NavigationViewItem.Icon>
+                        </NavigationViewItem>
+
+                        <NavigationViewItem
+                            Margin="0,0,12,0"
+                            wuc:NavHelper.NavigateTo="views:ShortcutGuidePage"
+                            Content="Shortcut Guide">
+                            <NavigationViewItem.Icon>
+                                <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/FluentIcons/FluentIconsShortcutGuide.png"/>
+                            </NavigationViewItem.Icon>
+                        </NavigationViewItem>
+
+                    </NavigationViewItem.MenuItems>
+                </NavigationViewItem>
+            </NavigationView.MenuItems>
+            <NavigationView.FooterMenuItems>
+                <NavigationViewItem Content="About" wuc:NavHelper.NavigateTo="views:AboutPage">
+                    <NavigationViewItem.Icon>
+                        <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/FluentIcons/FluentIconsSettings.png"/>
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+            </NavigationView.FooterMenuItems>
+            <Frame x:Name="shellFrame"/>
+        </NavigationView>
     </Grid>
 </Window>

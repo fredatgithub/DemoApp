@@ -13,10 +13,7 @@
         ModuleTitle="Shortcut Guide">
         <wuc:SettingsPageControl.ModuleContent>
             <StackPanel Orientation="Vertical" ChildrenTransitions="{StaticResource SettingsCardsAnimations}">
-                <wuc:SettingsCard Header="Enable Shortcut Guide">
-                    <wuc:SettingsCard.HeaderIcon>
-                        <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/FluentIcons/FluentIconsShortcutGuide.png"/>
-                    </wuc:SettingsCard.HeaderIcon>
+                <wuc:SettingsCard Header="Enable Shortcut Guide" HeaderIcon="{wuc:BitmapIcon Source=/Assets/FluentIcons/FluentIconsShortcutGuide.png}">
                     <ToggleSwitch/>
                 </wuc:SettingsCard>
 
@@ -24,15 +21,14 @@
                                             AutomationProperties.AccessibilityView="Raw"
                                             VisualType="SmallOutline"
                                             VerticalAlignment="Center"
-                                    HorizontalAlignment="Left"
+                                            HorizontalAlignment="Left"
                                             Content="Ctrl+F5" />
                 <wuc:ShortcutWithTextLabelControl x:Name="HotkeyMicVidControl" Text="to toggle both your microphone and video" />
                 <wuc:ShortcutWithTextLabelControl x:Name="HotkeyMicControl" Text="to toggle your microphone" />
                 <wuc:ShortcutWithTextLabelControl x:Name="HotkeyVidControl" Text="to toggle your microphone" />
                 <Button Content="Open Shortcut Dialog" Click="Button_Click"/>
                 <wuc:SettingsGroup Header="Appearance &amp; behavior">
-
-                    <wuc:SettingsCard Header="Choose a mode" HeaderIcon="&#xE771;">
+                    <wuc:SettingsCard Header="Choose a mode" HeaderIcon="{wuc:FontIcon FontFamily={StaticResource SymbolThemeFontFamily}, Glyph=&#xE790;}">
                         <wuc:SettingsCard.Description>
                             <HyperlinkButton Content="Windows color settings"/>
                         </wuc:SettingsCard.Description>
@@ -50,27 +46,25 @@
                                 Minimum="0"/>
                     </wuc:SettingsCard>
                 </wuc:SettingsGroup>
+                
                 <wuc:SettingsGroup Header="Excluded apps">
-                    <wuc:SettingsExpander IsExpanded="True">
-                        <wuc:SettingsExpander.Header>
+                    <wuc:SettingsExpander Description="Turns off Shortcut Guide when these applications have focus - add one application name per line"
+                                Header="Exclude apps" IsExpanded="True" HeaderIcon="{wuc:FontIcon FontFamily={StaticResource SymbolThemeFontFamily}, Glyph=&#xECE4;}">
+                        <wuc:SettingsExpander.Items>
                             <wuc:SettingsCard
-                                Description="Turns off Shortcut Guide when these applications have focus - add one application name per line"
-                                Header="Exclude apps"
-                                HeaderIcon="&#xE103;"
-                                Style="{StaticResource ExpanderHeaderSettingStyle}"/>
-                        </wuc:SettingsExpander.Header>
-                        <wuc:SettingsExpander.Content>
-                            <TextBox
-                                MinWidth="240"
-                                MinHeight="160"
-                                Margin="{StaticResource ExpanderSettingMargin}"
-                                AcceptsReturn="True"
-                                PlaceholderText="Example: outlook.exe"
-                                ScrollViewer.IsVerticalRailEnabled="True"
-                                ScrollViewer.VerticalScrollBarVisibility="Visible"
-                                ScrollViewer.VerticalScrollMode="Enabled"
-                                TextWrapping="Wrap"/>
-                        </wuc:SettingsExpander.Content>
+                                HorizontalContentAlignment="Stretch"
+                                ContentAlignment="Vertical">
+                                <TextBox
+                                    PlaceholderText="Example: outlook.exe"
+                                    MinWidth="240"
+                                    MinHeight="160"
+                                    AcceptsReturn="True"
+                                    ScrollViewer.IsVerticalRailEnabled="True"
+                                    ScrollViewer.VerticalScrollBarVisibility="Visible"
+                                    ScrollViewer.VerticalScrollMode="Enabled"
+                                    TextWrapping="Wrap" />
+                            </wuc:SettingsCard>
+                        </wuc:SettingsExpander.Items>
                     </wuc:SettingsExpander>
                 </wuc:SettingsGroup>
             </StackPanel>

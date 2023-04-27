@@ -13,53 +13,67 @@
         ModuleTitle="PowerRename"
         SecondaryLinksHeader="Attribution">
         <wuc:SettingsPageControl.ModuleContent>
-            <StackPanel HorizontalAlignment="Stretch" Orientation="Vertical" ChildrenTransitions="{StaticResource SettingsCardsAnimations}">
-                <wuc:SettingsCard Header="Enable PowerRename">
-                    <wuc:SettingsCard.HeaderIcon>
-                        <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/FluentIcons/FluentIconsPowerRename.png"/>
-                    </wuc:SettingsCard.HeaderIcon>
+            <StackPanel
+                x:Name="PowerRenameView" ChildrenTransitions="{StaticResource SettingsCardsAnimations}"
+                Orientation="Vertical">
+                <wuc:SettingsCard
+                    Header="Enable PowerRename"
+                    HeaderIcon="{wuc:BitmapIcon Source=/Assets/FluentIcons/FluentIconsPowerRename.png}">
                     <ToggleSwitch/>
                 </wuc:SettingsCard>
-
-                <wuc:SettingsGroup Header="Shell integration">
-                    <wuc:SettingsCard Header="Show icon on context menu">
-                        <ToggleSwitch/>
-                    </wuc:SettingsCard>
-
-                    <wuc:SettingsCard Description="Press Shift + right-click on files to open the extended menu" Header="Appear only in extended context menu">
-                        <ToggleSwitch/>
-                    </wuc:SettingsCard>
-                </wuc:SettingsGroup>
-
-                <wuc:SettingsGroup Header="Auto-complete">
-                    <wuc:SettingsExpander IsExpanded="True">
-                        <wuc:SettingsExpander.Header>
-                            <wuc:SettingsCard Header="Enable auto-complete for the search and replace fields" Style="{StaticResource ExpanderHeaderSettingStyle}">
-                                <ToggleSwitch/>
+                <InfoBar
+                    Title="The system administrator is forcing this setting."
+                    IsClosable="False"
+                    IsOpen="True"
+                    Severity="Informational" />
+                <wuc:SettingsGroup
+                    Header="Shell integration">
+                    <wuc:SettingsExpander
+                        Header="Show PowerRename in"
+                        IsExpanded="True">
+                        <ComboBox
+                            MinWidth="{StaticResource SettingActionControlMinWidth}"
+                            SelectedIndex="0">
+                            <ComboBoxItem Content="Default and extended context menu" />
+                            <ComboBoxItem Content="Extended context menu only" />
+                        </ComboBox>
+                        <wuc:SettingsExpander.Items>
+                            <wuc:SettingsCard ContentAlignment="Left">
+                                <CheckBox
+                                    Content="Hide icon in context menu"/>
                             </wuc:SettingsCard>
-                        </wuc:SettingsExpander.Header>
-                        <wuc:SettingsExpander.Content>
-                            <StackPanel HorizontalAlignment="Stretch">
-                                <wuc:SettingsCard Header="Maximum number of items" Style="{StaticResource ExpanderContentSettingStyle}">
-                                    <NumberBox
-                                            MinWidth="{StaticResource SettingActionControlMinWidth}"
-                                            HorizontalAlignment="Left"
-                                            Maximum="20"
-                                            Minimum="0"
-                                            SpinButtonPlacementMode="Compact"
-                                            Value="10"/>
-                                </wuc:SettingsCard>
-                            </StackPanel>
-                        </wuc:SettingsExpander.Content>
+                        </wuc:SettingsExpander.Items>
                     </wuc:SettingsExpander>
-                    <wuc:SettingsCard Header="Show recently used strings">
+                </wuc:SettingsGroup>
+
+                <wuc:SettingsGroup
+                    Header="Auto-complete">
+                    <wuc:SettingsExpander
+                        Header="Enable auto-complete for the search &amp; replace fields"
+                        IsExpanded="True">
+                        <ToggleSwitch/>
+                        <wuc:SettingsExpander.Items>
+                            <wuc:SettingsCard
+                                Header="Maximum number of items">
+                                <NumberBox
+                                    MinWidth="{StaticResource SettingActionControlMinWidth}"
+                                    Maximum="20"
+                                    Minimum="0"
+                                    SpinButtonPlacementMode="Compact" />
+                            </wuc:SettingsCard>
+                        </wuc:SettingsExpander.Items>
+                    </wuc:SettingsExpander>
+
+                    <wuc:SettingsCard
+                        Header="Show recently used strings"
+                        HeaderIcon="{wuc:FontIcon FontFamily={StaticResource SymbolThemeFontFamily}, Glyph=&#xe81c;}">
                         <ToggleSwitch/>
                     </wuc:SettingsCard>
                 </wuc:SettingsGroup>
-
-                <wuc:SettingsGroup Header="Behavior">
-                    <wuc:SettingsCard Description="Provides extended features but may use different regex syntax" Header="Use Boost library">
-                        <ToggleSwitch/>
+                <wuc:SettingsGroup
+                    Header="Behavior">
+                    <wuc:SettingsCard Header="Use Boost library" Description="Provides extended features but may use different regex syntax">
+                        <ToggleSwitch />
                     </wuc:SettingsCard>
                 </wuc:SettingsGroup>
             </StackPanel>

@@ -17,48 +17,35 @@
         SecondaryLinksHeader="Attribution">
         <wuc:SettingsPageControl.ModuleContent>
             <StackPanel ChildrenTransitions="{StaticResource SettingsCardsAnimations}">
-                <wuc:SettingsCard Header="Enable Image Resizer">
-                    <wuc:SettingsCard.HeaderIcon>
-                        <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/FluentIcons/FluentIconsImageResizer.png"/>
-                    </wuc:SettingsCard.HeaderIcon>
-                        <ToggleSwitch/>
-                    </wuc:SettingsCard>
+                <wuc:SettingsCard
+                    Header="Enable Image Resizer"
+                    HeaderIcon="{wuc:BitmapIcon Source=/Assets/FluentIcons/FluentIconsImageResizer.png}">
+                    <ToggleSwitch/>
+                </wuc:SettingsCard>
+
+                <InfoBar
+                    Title="The system administrator is forcing this setting."
+                    IsClosable="False"
+                    IsOpen="True"
+                    Severity="Informational" />
 
                 <wuc:SettingsGroup Header="Image sizes">
-                    <wuc:SettingsCard Header="Image sizes" HeaderIcon="&#xE2B2;">
-                        <Button Content="Add a size" Style="{ThemeResource AccentButtonStyle}"/>
+                    <wuc:SettingsCard Header="Presets" Description="Manage preset sizes that can be used in the editor" HeaderIcon="{wuc:FontIcon FontFamily={StaticResource SymbolThemeFontFamily}, Glyph=&#xE792;}">
+                        <Button
+                            Content="Add new size"
+                            Style="{ThemeResource AccentButtonStyle}" />
                     </wuc:SettingsCard>
                     <ListView
+                        x:Name="ImagesSizesListView"
                         ItemsSource="{x:Bind Sizes, Mode=TwoWay}"
-                        ScrollViewer.HorizontalScrollBarVisibility="Auto"
-                        ScrollViewer.HorizontalScrollMode="Enabled"
-                        ScrollViewer.IsHorizontalRailEnabled="True"
                         SelectionMode="None">
                         <ListView.ItemTemplate>
                             <DataTemplate x:Name="SingleLineDataTemplate" x:DataType="models:ImageSize">
-                                <Grid
-                                    MinHeight="68"
-                                    Padding="0,0,16,0"
-                                    HorizontalAlignment="Stretch"
-                                    Background="{ThemeResource CardBackgroundBrush}"
-                                    BorderBrush="{ThemeResource CardBorderBrush}"
-                                    BorderThickness="{ThemeResource CardBorderThickness}"
-                                    CornerRadius="{ThemeResource ControlCornerRadius}">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="56"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="52"/>
-                                    </Grid.ColumnDefinitions>
-
-                                    <StackPanel
-                                        Grid.Column="1"
-                                        Margin="0,0,16,0"
-                                        VerticalAlignment="Center"
-                                        Orientation="Vertical">
-                                        <TextBlock
-                                            FontSize="16"
-                                            FontWeight="SemiBold"
-                                            Text="{x:Bind Name, Mode=OneWay}"/>
+                                <wuc:SettingsCard Header="{x:Bind Name, Mode=OneWay}">
+                                    <wuc:SettingsCard.Resources>
+                                        <x:Double x:Key="SettingsCardLeftIndention">42</x:Double>
+                                    </wuc:SettingsCard.Resources>
+                                    <wuc:SettingsCard.Description>
                                         <StackPanel
                                             Grid.Row="1"
                                             Grid.Column="1"
@@ -67,31 +54,19 @@
                                             <TextBlock
                                                 Margin="0,0,4,0"
                                                 Style="{ThemeResource SecondaryTextStyle}"
-                                                Text="{x:Bind Fit, Mode=OneWay}"/>
+                                                Text="{x:Bind Fit}" />
                                             <TextBlock
                                                 Margin="0,0,4,0"
                                                 FontWeight="SemiBold"
                                                 Style="{ThemeResource SecondaryTextStyle}"
-                                                Text="{x:Bind Width, Mode=OneWay}"/>
-                                            <TextBlock
-                                                Margin="0,5,4,0"
-                                                AutomationProperties.AccessibilityView="Raw"
-                                                FontFamily="{ThemeResource SymbolThemeFontFamily}"
-                                                FontSize="10"
-                                                Style="{ThemeResource SecondaryTextStyle}"
-                                                Text="&#xE947;"/>
+                                                Text="{x:Bind Width, Mode=OneWay}" />
                                             <TextBlock
                                                 Margin="0,0,4,0"
-                                                FontWeight="SemiBold"
+                                                Foreground="{ThemeResource SystemBaseMediumColor}"
                                                 Style="{ThemeResource SecondaryTextStyle}"
-                                                Text="{x:Bind Height, Mode=OneWay}"/>
-                                            <TextBlock
-                                                Margin="0,0,4,0"
-                                                Style="{ThemeResource SecondaryTextStyle}"
-                                                Text="{x:Bind Unit, Mode=OneWay}"/>
+                                                Text="{x:Bind Unit}" />
                                         </StackPanel>
-                                    </StackPanel>
-
+                                    </wuc:SettingsCard.Description>
                                     <StackPanel
                                         Grid.Column="2"
                                         HorizontalAlignment="Right"
@@ -100,55 +75,53 @@
                                         <Button
                                             Width="40"
                                             Height="36"
-                                            Background="Transparent"
                                             Content="&#xE70F;"
-                                            FontFamily="Segoe MDL2 Assets">
-                                            <ToolTipService.ToolTip>
-                                                <TextBlock Text="Edit"/>
-                                            </ToolTipService.ToolTip>
+                                            FontFamily="{ThemeResource SymbolThemeFontFamily}"
+                                            Style="{StaticResource SubtleButtonStyle}">
                                             <Button.Flyout>
                                                 <Flyout>
                                                     <StackPanel Margin="0,12,0,0" Spacing="16">
                                                         <TextBox
-                                                            Width="240"
-                                                            HorizontalAlignment="Left"
                                                             Header="Name"
-                                                            Text="{x:Bind Path=Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                                        <ComboBox
                                                             Width="240"
                                                             HorizontalAlignment="Left"
+                                                            Text="{x:Bind Path=Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+                                                        <ComboBox
                                                             Header="Fit"
+                                                            Width="240"
+                                                            HorizontalAlignment="Left"
                                                             SelectedIndex="0">
-                                                            <ComboBoxItem Content="Fill"/>
-                                                            <ComboBoxItem Content="Fit"/>
-                                                            <ComboBoxItem Content="Stretch"/>
+                                                            <ComboBoxItem Content="Fill" />
+                                                            <ComboBoxItem Content="Fit" />
+                                                            <ComboBoxItem Content="Stretch" />
                                                         </ComboBox>
 
                                                         <StackPanel Orientation="Horizontal" Spacing="8">
                                                             <NumberBox
-                                                                Width="116"
                                                                 Header="Width"
+                                                                Width="116"
                                                                 Minimum="0"
                                                                 SpinButtonPlacementMode="Compact"
-                                                                Value="{x:Bind Path=Width, Mode=TwoWay}"/>
+                                                                Value="{x:Bind Path=Width, Mode=TwoWay}" />
 
                                                             <NumberBox
-                                                                Width="116"
                                                                 Header="Height"
+                                                                Width="116"
                                                                 Minimum="0"
                                                                 SpinButtonPlacementMode="Compact"
-                                                                Value="{x:Bind Path=Height, Mode=TwoWay}"/>
+                                                                Value="{x:Bind Path=Height, Mode=TwoWay}" />
 
                                                         </StackPanel>
                                                         <ComboBox
+                                                            Header="Size"
                                                             Width="240"
                                                             Margin="0,0,0,24"
-                                                            Header="Unit"
                                                             SelectedIndex="0">
-                                                            <ComboBoxItem Content="CM"/>
-                                                            <ComboBoxItem Content="Inches"/>
-                                                            <ComboBoxItem Content="Percent"/>
-                                                            <ComboBoxItem Content="Pixels"/>
+                                                            <ComboBoxItem Content="CM" />
+                                                            <ComboBoxItem Content="Inches" />
+                                                            <ComboBoxItem Content="Percent" />
+                                                            <ComboBoxItem Content="Pixels" />
                                                         </ComboBox>
                                                     </StackPanel>
                                                 </Flyout>
@@ -156,101 +129,117 @@
                                         </Button>
 
                                         <Button
+                                            x:Name="RemoveButton"
                                             Width="40"
                                             Height="36"
-                                            Background="Transparent"
                                             Content="&#xE74D;"
-                                            FontFamily="Segoe MDL2 Assets">
-                                            <ToolTipService.ToolTip>
-                                                <TextBlock Text="Remove"/>
-                                            </ToolTipService.ToolTip>
-                                        </Button>
+                                            FontFamily="{ThemeResource SymbolThemeFontFamily}"
+                                            Style="{StaticResource SubtleButtonStyle}"/>
                                     </StackPanel>
-                                </Grid>
+                                </wuc:SettingsCard>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
                 </wuc:SettingsGroup>
+
                 <wuc:SettingsGroup Header="Encoding">
                     <wuc:SettingsCard Header="Fallback encoder">
-                        <ComboBox MinWidth="{StaticResource SettingActionControlMinWidth}" SelectedIndex="2">
-                            <ComboBoxItem Content="PNG encoder"/>
-                            <ComboBoxItem Content="BMP encoder"/>
-                            <ComboBoxItem Content="JPEG encoder"/>
-                            <ComboBoxItem Content="TIFF encoder"/>
+                        <ComboBox MinWidth="{StaticResource SettingActionControlMinWidth}" SelectedIndex="0">
+                            <ComboBoxItem Content="PNG" />
+                            <ComboBoxItem Content="BMP" />
+                            <ComboBoxItem Content="JPEG" />
+                            <ComboBoxItem Content="TIFF" />
+                            <ComboBoxItem Content="WMPhoto" />
+                            <ComboBoxItem Content="GIF" />
                         </ComboBox>
                     </wuc:SettingsCard>
+
                     <wuc:SettingsCard Header="JPEG quality level">
-                        <NumberBox
-                                MinWidth="{StaticResource SettingActionControlMinWidth}"
-                                HorizontalAlignment="Right"
-                                Maximum="100"
-                                Minimum="0"
-                                SpinButtonPlacementMode="Compact"
-                                Value="90"/>
+                        <Slider
+                            MinWidth="{StaticResource SettingActionControlMinWidth}"
+                            Maximum="100"
+                            Minimum="0"/>
                     </wuc:SettingsCard>
 
                     <wuc:SettingsCard Header="PNG interlacing">
                         <ComboBox MinWidth="{StaticResource SettingActionControlMinWidth}" SelectedIndex="0">
-                            <ComboBoxItem Content="Default"/>
-                            <ComboBoxItem Content="On"/>
-                            <ComboBoxItem Content="Off"/>
+                            <ComboBoxItem Content="Default" />
+                            <ComboBoxItem Content="On" />
+                            <ComboBoxItem Content="Off" />
                         </ComboBox>
                     </wuc:SettingsCard>
 
                     <wuc:SettingsCard Header="TIFF compression">
                         <ComboBox MinWidth="{StaticResource SettingActionControlMinWidth}" SelectedIndex="0">
-                            <ComboBoxItem Content="Default"/>
-                            <ComboBoxItem Content="None"/>
-                            <ComboBoxItem Content="CCITT3"/>
-                            <ComboBoxItem Content="CCITT4"/>
-                            <ComboBoxItem Content="LZW"/>
+                            <ComboBoxItem Content="Default" />
+                            <ComboBoxItem Content="None" />
+                            <ComboBoxItem Content="CCITT3" />
+                            <ComboBoxItem Content="CCITT4" />
+                            <ComboBoxItem Content="LZW" />
+                            <ComboBoxItem Content="RLE" />
+                            <ComboBoxItem Content="Zip" />
                         </ComboBox>
                     </wuc:SettingsCard>
                 </wuc:SettingsGroup>
+
                 <wuc:SettingsGroup Header="File">
-                    <wuc:SettingsExpander IsExpanded="True">
-                        <wuc:SettingsExpander.Header>
-                            <wuc:SettingsCard Header="Filename format" Style="{StaticResource ExpanderHeaderSettingStyle}">
-                                <StackPanel Orientation="Horizontal" Spacing="4">
-                                    <TextBox
-                                            MinWidth="{StaticResource SettingActionControlMinWidth}"
-                                            HorizontalAlignment="Right"
-                                            Header="Example: %1 (%2)"/>
-                                    <Button Content="&#xE946;" FontFamily="{ThemeResource SymbolThemeFontFamily}">
-                                        <Button.Flyout>
-                                            <Flyout>
-                                                <TextBlock x:Name="FileFormatTextBlock">
-                                                        <Run Text="The following parameters can be used:"/>
-                                                        <LineBreak/>
-                                                        <LineBreak/>
-                                                        <Run FontWeight="Bold" Text="%1"/>
-                                                        <Run Text=" - "/>
-                                                        <Run Text="Original filename"/>
-                                                        <LineBreak/>
-                                                        <Run FontWeight="Bold" Text="%2"/>
-                                                        <Run Text=" - "/>
-                                                        <Run Text="Size name"/>
-                                                        <LineBreak/>
-                                                        <Run FontWeight="Bold" Text="%3"/>
-                                                        <Run Text=" - "/>
-                                                </TextBlock>
-                                            </Flyout>
-                                        </Button.Flyout>
-                                    </Button>
-                                </StackPanel>
-                            </wuc:SettingsCard>
-                        </wuc:SettingsExpander.Header>
-                        <wuc:SettingsExpander.Content>
-                            <CheckBox Margin="16,8,0,8" Content="Use original date modified"/>
-                        </wuc:SettingsExpander.Content>
-                    </wuc:SettingsExpander>
+                    <wuc:SettingsCard Header="Filename format" Description="This format is used as the filename for resized images">
+                        <StackPanel Orientation="Horizontal" Spacing="4">
+                            <TextBox
+                                PlaceholderText="Example: %1 (%2)"
+                                MinWidth="{StaticResource SettingActionControlMinWidth}"/>
+                            <Button
+                                Content="&#xE946;"
+                                FontFamily="{ThemeResource SymbolThemeFontFamily}"
+                                Style="{StaticResource SubtleButtonStyle}">
+                                <Button.Flyout>
+                                    <Flyout>
+                                        <TextBlock x:Name="FileFormatTextBlock">
+                                            <Run Text="The following parameters can be used:" />
+                                            <LineBreak />
+                                            <LineBreak />
+                                            <Run FontWeight="Bold" Text="%1" />
+                                            <Run Text=" - " />
+                                            <Run Text="Original filename" />
+                                            <LineBreak />
+                                            <Run FontWeight="Bold" Text="%2" />
+                                            <Run Text=" - " />
+                                            <Run Text="Size name" />
+                                            <LineBreak />
+                                            <Run FontWeight="Bold" Text="%3" />
+                                            <Run Text=" - " />
+                                            <Run Text="Selected width" />
+                                            <LineBreak />
+                                            <Run FontWeight="Bold" Text="%4" />
+                                            <Run Text=" - " />
+                                            <Run Text="Selected height" />
+                                            <LineBreak />
+                                            <Run FontWeight="Bold" Text="%5" />
+                                            <Run Text=" - " />
+                                            <Run Text="Actual width" />
+                                            <LineBreak />
+                                            <Run FontWeight="Bold" Text="%6" />
+                                            <Run Text=" - " />
+                                            <Run Text="Actual height" />
+                                        </TextBlock>
+                                    </Flyout>
+                                </Button.Flyout>
+                            </Button>
+                        </StackPanel>
+                    </wuc:SettingsCard>
+
+                    <wuc:SettingsCard Header="File modified timestamp" Description="Used as the 'modified timestamp' in the file properties">
+                        <ComboBox MinWidth="{StaticResource SettingActionControlMinWidth}" SelectedIndex="0">
+                            <ComboBoxItem Content="Original file timestamp" />
+                            <ComboBoxItem Content="Timestamp of resize action" />
+                        </ComboBox>
+                    </wuc:SettingsCard>
                 </wuc:SettingsGroup>
             </StackPanel>
         </wuc:SettingsPageControl.ModuleContent>
 
         <wuc:SettingsPageControl.PrimaryLinks>
-            <wuc:PageLink Link="https://aka.ms/PowerToysOverview_ImageResizer" Text="Learn more about Image Resizer"/>
+            <wuc:PageLink Link="https://aka.ms/DemoOverview_ImageResizer" Text="Learn more about Image Resizer"/>
         </wuc:SettingsPageControl.PrimaryLinks>
         <wuc:SettingsPageControl.SecondaryLinks>
             <wuc:PageLink Link="https://github.com/bricelam/ImageResizer/" Text="Brice Lambson's ImageResizer"/>

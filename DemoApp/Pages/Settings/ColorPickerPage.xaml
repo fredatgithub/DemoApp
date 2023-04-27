@@ -16,68 +16,53 @@
         ModuleTitle="Color Picker"
         SecondaryLinksHeader="Attribution">
         <wuc:SettingsPageControl.ModuleContent>
-            <StackPanel x:Name="ColorPickerView" Orientation="Vertical" ChildrenTransitions="{StaticResource SettingsCardsAnimations}">
-                <wuc:SettingsCard Header="Enable Color Picker">
-                    <wuc:SettingsCard.HeaderIcon>
-                        <BitmapIcon ShowAsMonochrome="False" UriSource="ms-appx:///Assets/FluentIcons/FluentIconsColorPicker.png"/>
-                    </wuc:SettingsCard.HeaderIcon>
-                    <ToggleSwitch/>
+            <StackPanel
+                ChildrenTransitions="{StaticResource SettingsCardsAnimations}"
+                Orientation="Vertical">
+                <wuc:SettingsCard
+                    Header="Enable Color Picker"
+                    HeaderIcon="{wuc:BitmapIcon Source=/Assets/FluentIcons/FluentIconsColorPicker.png}">
+                    <ToggleSwitch />
                 </wuc:SettingsCard>
+                <InfoBar
+                    Title="The system administrator is forcing this setting."
+                    IsClosable="False"
+                    IsOpen="True"
+                    Severity="Informational" />
 
                 <wuc:SettingsGroup Header="Shortcut">
-                    <wuc:SettingsExpander IsExpanded="True">
-                        <wuc:SettingsExpander.Header>
-                            <wuc:SettingsCard
-                                Header="Activation behavior"
-                                HeaderIcon="&#xEC4E;"
-                                Style="{StaticResource ExpanderHeaderSettingStyle}"/>
-                        </wuc:SettingsExpander.Header>
-                        <wuc:SettingsExpander.Content>
-                            <StackPanel Padding="56,16,16,24" Spacing="12">
-                                <RadioButton GroupName="ColorPickerActivationAction">
-                                    <RadioButton.Content>
-                                        <StackPanel>
-                                            <TextBlock Text="Color Picker with editor mode enabled"/>
-                                            <TextBlock Style="{StaticResource SecondaryTextStyle}" Text="Pick a color from the screen, copy formatted value to clipboard, then to the editor"/>
-                                        </StackPanel>
-                                    </RadioButton.Content>
-                                </RadioButton>
+                    <wuc:SettingsCard Header="Activation behavior" HeaderIcon="{wuc:FontIcon FontFamily={StaticResource SymbolThemeFontFamily}, Glyph=&#xEC4E;}">
+                        <ComboBox MinWidth="{StaticResource SettingActionControlMinWidth}" SelectedIndex="0">
+                            <ComboBoxItem Content="Open editor" />
+                            <ComboBoxItem Content="Pick a color and open editor" />
+                            <ComboBoxItem Content="Only pick a color" />
+                        </ComboBox>
+                    </wuc:SettingsCard>
 
-                                <RadioButton GroupName="ColorPickerActivationAction">
-                                    <RadioButton.Content>
-                                        <StackPanel>
-                                            <TextBlock Text="Editor"/>
-                                            <TextBlock Style="{StaticResource SecondaryTextStyle}" Text="Open directly into the editor mode"/>
-                                        </StackPanel>
-                                    </RadioButton.Content>
-                                </RadioButton>
-                            </StackPanel>
-                        </wuc:SettingsExpander.Content>
-                    </wuc:SettingsExpander>
                 </wuc:SettingsGroup>
 
                 <wuc:SettingsGroup Header="Picker behavior">
-                    <wuc:SettingsCard
-                        Description="This format will be copied to your clipboard"
-                        Header="Default color format"
-                        HeaderIcon="&#xEF3C;">
+                    <wuc:SettingsCard Header="Default color format" Description="This format will be copied to your clipboard" HeaderIcon="{wuc:FontIcon FontFamily={StaticResource SymbolThemeFontFamily}, Glyph=&#xF0E3;}">
                         <ComboBox
-                                MinWidth="{StaticResource SettingActionControlMinWidth}"
-                                HorizontalAlignment="Left"
-                                DisplayMemberPath="Value"/>
+                            MinWidth="{StaticResource SettingActionControlMinWidth}"/>
                     </wuc:SettingsCard>
 
-                    <wuc:SettingsCard Description="This will show the name of the color when picking a color" Header="Show color name">
-                        <ToggleSwitch/>
+                    <wuc:SettingsCard Header="Show color name" Description="This will show the name of the color when picking a color">
+                        <ToggleSwitch />
                     </wuc:SettingsCard>
                 </wuc:SettingsGroup>
 
-                <wuc:SettingsGroup Header="Editor">
+                <wuc:SettingsGroup Header="Color formats">
                     <wuc:SettingsCard
-                        x:Name="ColorFormatsSetting"
-                        Description="Select which color formats (and in what order) should show up in the editor"
                         Header="Color formats"
-                        HeaderIcon="&#xE14C;"/>
+                        Description="Configure the color formats (edit, delete, hide, reorder them)"
+                        HeaderIcon="{wuc:FontIcon FontFamily={StaticResource SymbolThemeFontFamily},
+                                                 Glyph=&#xE762;}">
+                        <Button
+                            Content="Add new format"
+                            HorizontalAlignment="Right"
+                            Style="{StaticResource AccentButtonStyle}" />
+                    </wuc:SettingsCard>
                     <ListView
                         HorizontalAlignment="Stretch"
                         AutomationProperties.Name="{Binding ElementName=ColorFormatsSetting, Path=Header}"
@@ -85,69 +70,61 @@
                         SelectionMode="None">
                         <ListView.ItemTemplate>
                             <DataTemplate x:DataType="models:ColorFormatModel">
-                                <Grid
-                                    MinHeight="68"
-                                    Padding="0,0,16,0"
-                                    HorizontalAlignment="Stretch"
-                                    AutomationProperties.Name="{x:Bind Name}"
-                                    Background="{ThemeResource CardBackgroundBrush}"
-                                    BorderBrush="{ThemeResource CardBorderBrush}"
-                                    BorderThickness="{ThemeResource CardBorderThickness}"
-                                    CornerRadius="{ThemeResource ControlCornerRadius}">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition/>
-                                        <RowDefinition/>
-                                    </Grid.RowDefinitions>
-                                    <TextBlock
-                                        Margin="56,8,0,0"
-                                        FontSize="16"
-                                        FontWeight="SemiBold"
-                                        Text="{x:Bind Name}"/>
-                                    <TextBlock
-                                        Grid.Row="1"
-                                        Margin="56,0,0,8"
-                                        Style="{StaticResource SecondaryTextStyle}"
-                                        Text="{x:Bind Example}"/>
-                                    <ToggleSwitch
-                                        Grid.RowSpan="2"
-                                        Margin="0,0,56,0"
-                                        HorizontalAlignment="Right"
-                                        AutomationProperties.HelpText="{x:Bind Name}"
-                                        IsOn="{x:Bind IsShown, Mode=TwoWay}"
-                                        OffContent=""
-                                        OnContent=""/>
+                                <wuc:SettingsCard
+                                    Margin="0,0,0,2"
+                                    Description="{x:Bind Example, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                    Header="{x:Bind Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                    IsActionIconVisible="False"
+                                    IsClickEnabled="True">
+                                    <wuc:SettingsCard.Resources>
+                                        <x:Double x:Key="SettingsCardLeftIndention">42</x:Double>
+                                        <x:Double x:Key="SettingsCardActionButtonWidth">0</x:Double>
+                                    </wuc:SettingsCard.Resources>
+                                    <StackPanel Orientation="Horizontal" Spacing="4">
+                                        <ToggleSwitch
+                                            OffContent=""
+                                            OnContent="" />
+                                        <Button
+                                            Grid.Column="1"
+                                            VerticalAlignment="Center"
+                                            Content="&#xE712;"
+                                            FontFamily="{ThemeResource SymbolThemeFontFamily}"
+                                            Style="{StaticResource SubtleButtonStyle}">
+                                            <Button.Flyout>
+                                                <MenuFlyout>
+                                                    <MenuFlyoutItem
+                                                        Text="MoveUp">
+                                                        <MenuFlyoutItem.Icon>
+                                                            <FontIcon Glyph="&#xE74A;" />
+                                                        </MenuFlyoutItem.Icon>
+                                                    </MenuFlyoutItem>
+                                                    <MenuFlyoutItem
+                                                        Text="MoveDown">
+                                                        <MenuFlyoutItem.Icon>
+                                                            <FontIcon Glyph="&#xE74B;" />
+                                                        </MenuFlyoutItem.Icon>
+                                                    </MenuFlyoutItem>
+                                                    <MenuFlyoutSeparator />
+                                                    <MenuFlyoutItem
+                                                        Text="RemoveItem">
+                                                        <MenuFlyoutItem.Icon>
+                                                            <FontIcon Glyph="&#xE74D;" />
+                                                        </MenuFlyoutItem.Icon>
+                                                    </MenuFlyoutItem>
 
-                                    <Button
-                                        Grid.RowSpan="2"
-                                        HorizontalAlignment="Right"
-                                        VerticalAlignment="Center"
-                                        Background="Transparent"
-                                        Content="&#xE10C;"
-                                        FontFamily="{ThemeResource SymbolThemeFontFamily}">
-                                        <Button.Flyout>
-                                            <MenuFlyout>
-                                                <MenuFlyoutItem
-                                                    Icon="Up"
-                                                    IsEnabled="{x:Bind CanMoveUp}"
-                                                    Text="Move up"/>
-                                                <MenuFlyoutItem IsEnabled="{x:Bind CanMoveDown}" Text="Move down">
-                                                    <MenuFlyoutItem.Icon>
-                                                        <FontIcon Glyph="&#xE1FD;"/>
-                                                    </MenuFlyoutItem.Icon>
-                                                </MenuFlyoutItem>
-                                            </MenuFlyout>
-                                        </Button.Flyout>
-                                        <ToolTipService.ToolTip>
-                                            <TextBlock Text="More options"/>
-                                        </ToolTipService.ToolTip>
-                                    </Button>
-                                </Grid>
+                                                </MenuFlyout>
+                                            </Button.Flyout>
+                                            <ToolTipService.ToolTip>
+                                                <TextBlock Text="More options" />
+                                            </ToolTipService.ToolTip>
+                                        </Button>
+                                    </StackPanel>
+                                </wuc:SettingsCard>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
                 </wuc:SettingsGroup>
             </StackPanel>
-
         </wuc:SettingsPageControl.ModuleContent>
 
         <wuc:SettingsPageControl.PrimaryLinks>

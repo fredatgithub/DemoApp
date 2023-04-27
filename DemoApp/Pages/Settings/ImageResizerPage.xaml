@@ -239,7 +239,7 @@
         </wuc:SettingsPageControl.ModuleContent>
 
         <wuc:SettingsPageControl.PrimaryLinks>
-            <wuc:PageLink Link="https://aka.ms/DemoOverview_ImageResizer" Text="Learn more about Image Resizer"/>
+            <wuc:PageLink Link="https://aka.ms/PowerToysOverview_ImageResizer" Text="Learn more about Image Resizer"/>
         </wuc:SettingsPageControl.PrimaryLinks>
         <wuc:SettingsPageControl.SecondaryLinks>
             <wuc:PageLink Link="https://github.com/bricelam/ImageResizer/" Text="Brice Lambson's ImageResizer"/>

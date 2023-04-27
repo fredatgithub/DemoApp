@@ -8,106 +8,161 @@
                                   ModuleTitle="General"
                                   SecondaryLinksHeader="Related information">
         <wuc:SettingsPageControl.ModuleContent>
-            <StackPanel Orientation="Vertical" ChildrenTransitions="{StaticResource SettingsCardsAnimations}">
-                <wuc:SettingsGroup Margin="0,-32,0,0"
-                                        Header="Version">
-                    <wuc:SettingsCard Header="v0.45.0"
-                                      HeaderIcon="&#xE117;">
+            <StackPanel ChildrenTransitions="{StaticResource SettingsCardsAnimations}" Orientation="Vertical">
+                <wuc:SettingsGroup Header="Version" Margin="0,-32,0,0">
+                    <wuc:SettingsCard Header="PowerToys V1.0" HeaderIcon="{wuc:FontIcon FontFamily={StaticResource SymbolThemeFontFamily}, Glyph=&#xE895;}">
                         <wuc:SettingsCard.Description>
                             <StackPanel Orientation="Vertical">
                                 <TextBlock Style="{StaticResource SecondaryTextStyle}">
-                                    <Run Text="Last Checked" />
-                                    <Run Text="2021/09/10" />
+                                    <Run Text="Last checked: " />
+                                    <Run Text="2023/04/27" />
                                 </TextBlock>
-                                <HyperlinkButton Margin="0,2,0,0"
-                                                 Content="Release notes"
-                                                 NavigateUri="https://github.com/microsoft/PowerToys/releases/" />
+                                <HyperlinkButton
+                                    Content="Release Notes"
+                                    Margin="0,2,0,0"
+                                    FontWeight="SemiBold" />
                             </StackPanel>
                         </wuc:SettingsCard.Description>
-                        <StackPanel VerticalAlignment="Center"
-                                        Orientation="Horizontal"
-                                        Spacing="18">
-                            <ProgressRing Width="24"
-                                              Height="24" />
-                            <TextBlock VerticalAlignment="Center"
-                                           FontWeight="SemiBold"
-                                           Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                                           Text="Checking For Updates" />
-                            <Button HorizontalAlignment="Right"
-                                        Content="Check For Updates" />
-                        </StackPanel>
+
+                        <Button
+                                Content="Check for Update"
+                                HorizontalAlignment="Right"/>
                     </wuc:SettingsCard>
+                    <InfoBar
+                        Title="PowerToys is up to date"
+                        IsClosable="False"
+                        IsOpen="True"
+                        Severity="Success" />
 
-                    <InfoBar Title="Up To Date"
-                             IsClosable="False"
-                             IsOpen="True"
-                             Severity="Success" />
-
-                    <wuc:SettingsCard Margin="0,-6,0,0"
-                                      Description="Except on metered conections"
-                                      Header="Download updates automatically">
-                        <ToggleSwitch />
+                    <wuc:SettingsCard
+                        Header="Download updates automatically"
+                        Description="Except on metered connections"
+                        Margin="0,-6,0,0">
+                        <ToggleSwitch/>
                     </wuc:SettingsCard>
+                    <InfoBar
+                        Title="The system administrator has disabled the automatic download of updates."
+                        IsClosable="False"
+                        IsOpen="True"
+                        Severity="Informational" />
                 </wuc:SettingsGroup>
-                <wuc:SettingsGroup Header="Administrator mode">
-                    <wuc:SettingsExpander IsExpanded="True">
-                        <wuc:SettingsExpander.Header>
-                            <wuc:SettingsCard Description="Running as user"
-                                              Header="Administrator mode"
-                                              HeaderIcon="&#xE1A7;"
-                                              Style="{StaticResource ExpanderHeaderSettingStyle}">
-                                <Button Content="Restart Demo as administrator" />
-                            </wuc:SettingsCard>
-                        </wuc:SettingsExpander.Header>
-                        <wuc:SettingsExpander.Content>
-                            <StackPanel Orientation="Vertical">
-                                <wuc:SettingsCard Header="Always run as administrator"
-                                                  IsEnabled="False"
-                                                  Style="{StaticResource ExpanderContentSettingStyle}">
-                                    <wuc:SettingsCard.Description>
-                                        <HyperlinkButton Content="Learn more about administrator mode"
-                                                         NavigateUri="https://aka.ms/powertoysDetectedElevatedHelp" />
-                                    </wuc:SettingsCard.Description>
 
-                                </wuc:SettingsCard>
-                                <InfoBar Title="You need to run as administrator to use this setting."
-                                         IsClosable="False"
-                                         IsOpen="True"
-                                         Severity="Warning" />
-                            </StackPanel>
-                        </wuc:SettingsExpander.Content>
-                    </wuc:SettingsExpander>
-                </wuc:SettingsGroup>
-                <wuc:SettingsGroup Header="Appearance &amp; behavior">
-                    <wuc:SettingsCard Header="Choose a mode"
-                                      HeaderIcon="&#xE771;">
+                <wuc:SettingsGroup Header="Appearance &amp; behavior" IsEnabled="True">
+                    <wuc:SettingsCard Header="App theme" HeaderIcon="{wuc:FontIcon FontFamily={StaticResource SymbolThemeFontFamily}, Glyph=&#xE790;}">
                         <wuc:SettingsCard.Description>
-                            <HyperlinkButton Content="Windows color settings" />
+                            <HyperlinkButton Content="Windows color settings"/>
                         </wuc:SettingsCard.Description>
-                        <ComboBox MinWidth="{StaticResource SettingActionControlMinWidth}"
-                                      SelectedIndex="2">
+                        <ComboBox MinWidth="{StaticResource SettingActionControlMinWidth}" SelectedIndex="0">
                             <ComboBoxItem Content="Dark" />
                             <ComboBoxItem Content="Light" />
                             <ComboBoxItem Content="Default" />
                         </ComboBox>
                     </wuc:SettingsCard>
-                    <wuc:SettingsCard Description="Demo will launch automatically"
-                                      Header="Run at startUp">
-                        <ToggleSwitch />
+
+                    <wuc:SettingsCard Header="Run at startup" Description="PowerToys will launch automatically">
+                        <ToggleSwitch/>
                     </wuc:SettingsCard>
                 </wuc:SettingsGroup>
-                <CheckBox Name="check"
-                          Margin="56,0,40,16"
-                          AutomationProperties.Name="{Binding ElementName=IncludeInGlobalResultTitle, Path=Text}">
-                    <StackPanel Orientation="Vertical">
-                        <TextBlock x:Name="IncludeInGlobalResultTitle"
-                                   Margin="0,10,0,0"
-                                   Text="Include in global result" />
-                        <wuc:IsEnabledTextBlock FontSize="{StaticResource SecondaryTextFontSize}"
-                                                     IsEnabled="{Binding ElementName=check, Path=IsChecked}"
-                                                     Text="Show results on queries without direct activation command" />
-                    </StackPanel>
-                </CheckBox>
+
+                <wuc:SettingsGroup Header="Backup &amp; restore" Visibility="Visible">
+                    <wuc:SettingsExpander Header="Backup and restore your settings" Description="PowerToys will restart automatically if needed" HeaderIcon="{wuc:FontIcon FontFamily={StaticResource SymbolThemeFontFamily}, Glyph=&#xE777;}">
+                        <StackPanel Orientation="Horizontal" Spacing="8">
+                            <Button Content="Backup"/>
+                            <Button Content="Restore"/>
+                        </StackPanel>
+                        <wuc:SettingsExpander.Items>
+                            <wuc:SettingsCard Header="Location">
+                                <StackPanel
+                                    HorizontalAlignment="Right"
+                                    Orientation="Horizontal"
+                                    Spacing="8">
+                                    <TextBlock
+                                        x:Name="pathTextBlock"
+                                        Width="350"
+                                        HorizontalAlignment="Right"
+                                        VerticalAlignment="Center"
+                                        FontSize="12"
+                                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                        IsTextSelectionEnabled="True"
+                                        TextAlignment="Right"
+                                        TextTrimming="CharacterEllipsis"/>
+                                    <Button
+                                        Content="&#xe8da;"
+                                        FontFamily="{ThemeResource SymbolThemeFontFamily}">
+                                        <ToolTipService.ToolTip>
+                                            <ToolTip>
+                                                <TextBlock Text="Select folder" />
+                                            </ToolTip>
+                                        </ToolTipService.ToolTip>
+                                    </Button>
+                                </StackPanel>
+                            </wuc:SettingsCard>
+                            <wuc:SettingsCard
+                                Header="Backup information"
+                                HorizontalContentAlignment="Left"
+                                ContentAlignment="Vertical">
+                                <wuc:SettingsCard.Resources>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="FontSize" Value="12" />
+                                    </Style>
+                                </wuc:SettingsCard.Resources>
+                                <Grid Margin="0,0,0,6" ColumnSpacing="8">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Text="Status:" />
+                                    <TextBlock Grid.Column="1" Foreground="{ThemeResource TextFillColorSecondaryBrush}">
+                                        <Run/>
+                                        <Hyperlink TextDecorations="Underline">
+                                            <Run Text="Refresh" />
+                                        </Hyperlink>
+                                    </TextBlock>
+
+                                    <TextBlock Text="File name:" Grid.Row="1" />
+                                    <TextBlock
+                                        Grid.Row="1"
+                                        Grid.Column="1"
+                                        Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+
+                                    <TextBlock Text="Source machine:" Grid.Row="2" />
+                                    <TextBlock
+                                        Grid.Row="2"
+                                        Grid.Column="1"
+                                        Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+                                    <TextBlock Text="Created at:" Grid.Row="3" />
+                                    <TextBlock
+                                        Grid.Row="3"
+                                        Grid.Column="1"
+                                        Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                                </Grid>
+                            </wuc:SettingsCard>
+                        </wuc:SettingsExpander.Items>
+                    </wuc:SettingsExpander>
+                </wuc:SettingsGroup>
+                <InfoBar
+                    Title="Result"
+                    IsClosable="False"
+                    IsOpen="True"/>
+                <wuc:SettingsGroup Header="Experimentation" Visibility="Visible">
+                    <wuc:SettingsCard Header="Allow experimentation with new features" Description="Note: Only Windows Insider builds may be selected for experimentation">
+                        <wuc:SettingsCard.HeaderIcon>
+                            <PathIcon Data="M1859 1758q14 23 21 47t7 51q0 40-15 75t-41 61-61 41-75 15H354q-40 0-75-15t-61-41-41-61-15-75q0-27 6-51t21-47l569-992q10-14 10-34V128H640V0h768v128h-128v604q0 19 10 35l569 991zM896 732q0 53-27 99l-331 577h972l-331-577q-27-46-27-99V128H896v604zm799 1188q26 0 44-19t19-45q0-10-2-17t-8-16l-164-287H464l-165 287q-9 15-9 33 0 26 18 45t46 19h1341z" />
+                        </wuc:SettingsCard.HeaderIcon>
+                        <ToggleSwitch/>
+                    </wuc:SettingsCard>
+                    <InfoBar
+                        Title="The system administrator has disabled experimentation."
+                        IsClosable="False"
+                        IsOpen="True"
+                        Severity="Informational" />
+                </wuc:SettingsGroup>
             </StackPanel>
         </wuc:SettingsPageControl.ModuleContent>
         <wuc:SettingsPageControl.PrimaryLinks>
